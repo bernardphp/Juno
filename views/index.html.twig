@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block tab 'Overview' %}
+
+{% block body %}
+    <div class="page-header">
+        <h1>Overview</h1>
+    </div>
+
+    {{ include('Queue/_list.html.twig', { 'queues' : queues, 'app' : app }, false) }}
+
+    {{ include('Worker/_list.html.twig', { 'workers' : [], 'app' : app }, false) }}
+{% endblock %}

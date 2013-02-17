@@ -1,0 +1,11 @@
+{
+    "autoload" : {
+        "psr-0" : { "" : "src/" }
+    },
+
+    "require" : {
+        "ext-redis" : "*",
+        "henrikbjorn/flint" : "~1.0",
+        "silex/silex" : "dev-master"
+    }
+}

@@ -1,0 +1,30 @@
+<h2>Queues</h2>
+<p class="lead">The list below contains all the registered queues with the number of jobs currently in the queue. Select a queue from above to view all jobs currently pending on the queue.</p>
+
+<div class="row">
+    <div class="span4">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th width="1">Jobs</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for queue in queues if queue.title != 'failed'  %}
+                <tr>
+                    <td><a href="#">{{ queue.title }}</a></td>
+                    <td align="center">{{ queue.count }}</td>
+                </tr>
+                {% endfor %}
+
+                {% set queue = queues.failed %}
+                <tr class="failed">
+                    <td><a href="#">{{ queue.title }}</a></td>
+                    <td align="center">{{ queue.count }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

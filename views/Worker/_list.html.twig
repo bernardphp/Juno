@@ -1,0 +1,17 @@
+<h2>0 of 0 Workers Working</h2>
+<p class="lead">The list below contains all workers which are currently running a job.</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <th>Where</th>
+        <th>Queue</th>
+        <th>Processing</th>
+    </thead>
+    <tbody>
+    {% for worker in workers %}
+    {% else %}
+    <tr>
+        <td colspan="3">Nothing is happening right now...</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Juno</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/css/bootstrap.css" rel="stylesheet">
+        <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+        <style>
+        table tr.failed td { border-top:2px solid; font-size:90%; }
+        table tr.failed td { background:#ffecec; border-top:2px solid #d37474; font-size:90%; color:#d37474;}
+        table tr.failed td a{ color:#d37474;}
+        </style>
+    </head>
+
+    <body>
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="{{ app.router.generate('homepage') }}">Juno</a>
+
+                    <ul class="nav">
+                        {% for title, path in { 'Overview' : 'homepage' } %}
+                        <li{{ block('tab') == title ? ' class="active"' : '' }}>
+                            <a href="{{ app.router.generate(path) }}">{{ title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            {{ block('body') }}
+        </div>
+    </body>
+</html>
