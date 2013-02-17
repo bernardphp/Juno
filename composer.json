@@ -4,8 +4,8 @@
     },
 
     "require" : {
-        "ext-redis" : "*",
-        "henrikbjorn/flint" : "~1.0",
-        "silex/silex" : "dev-master"
+        "henrikbjorn/flint"  : "~1.0",
+        "henrikbjorn/raekke" : "dev-master",
+        "silex/silex"        : "dev-master"
     }
 }
