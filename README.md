@@ -13,6 +13,6 @@ Embedding into other Applications
 
 1. Add `henrikbjorn/juno` to you composer file.
 2. Register `Juno\Provider\JunoServiceProvider` as a ServiceProvider on you application.
-3. If using the controller provier make sure `Silex\Provider\ServiceControllerServiceProvider` is enabled.
-3. Register `Juno\Provider\JunoControllerProvider` or add `src/Juno/Resources/config/routing.xml` in your routing file (if using Flint). Remember
+3. Register `Juno\Provider\JunoControllerProvider` or add `src/Juno/Resources/config/routing.xml` in your routing file. Remember
    to give it a prefix like `/juno` when registering either.
+4. Copy `web/juno` assets to somewhere the applicaiton can find them.
