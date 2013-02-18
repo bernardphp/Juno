@@ -13,6 +13,9 @@ use Juno\Twig\CodeExtension;
  */
 class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
 {
+    /**
+     * {@inheritDoc}
+     */
     public function register(Application $app)
     {
         $app['raekke.serializer'] = null;
@@ -37,6 +40,9 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
         }));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function boot(Application $app)
     {
     }
