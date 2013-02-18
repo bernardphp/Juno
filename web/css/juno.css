@@ -1,4 +1,8 @@
 #content{border-left:1px solid #b8c1c7;border-radius:5px}
+#content section:first-child header:first-child{border-radius:5px 5px 0 0;border-top:0}
+#content header {border-top:1px solid #b8c1c7;border-radius:0}
+
+.navbar .brand{margin-left:0;padding-left:0}
 
 table tr.failed td { border-top:2px solid; font-size:90%; }
 table tr.failed td { background:#ffecec; border-top:2px solid #d37474; font-size:90%; color:#d37474;}
