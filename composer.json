@@ -5,7 +5,7 @@
 
     "require" : {
         "henrikbjorn/flint"  : "~1.0",
-        "henrikbjorn/raekke" : "dev-master",
-        "silex/silex"        : "dev-master"
+        "silex/silex"        : "dev-master",
+        "symfony/twig-bridge" : "dev-master"
     }
 }

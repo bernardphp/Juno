@@ -1,0 +1,58 @@
+{% extends 'layout.html.twig' %}
+
+{% set failed = queue.name == 'failed' %}
+{% set start = app.request.query.get('start', 0) %}
+{% set limit = app.request.query.get('limit', 20) %}
+{% set count = queue.count %}
+
+{% block tab failed ? 'Failed' : 'Queues' %}
+
+{% block body %}
+    <section id="queue">
+        <header>
+            <div class="pull-right">
+                {% if not failed %}
+                    <form action="{{ app.router.generate('queue_delete', { 'queue' : queue.name }) }}" method="post">
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('Are you absolutely sure? This cannot be undone.');">Remove Queue</button>
+                    </form>
+                {% endif %}
+            </div>
+
+            <h2>{{ failed ? "Failed Jobs" : "Pending Jobs on \"#{queue.name}\"" }}</h2>
+        </header>
+
+
+        <div class="row-fluid">
+            <div class="span12">
+                <p>Showing {{ start }} to {{ start + limit }} of <strong>{{ count }}</strong> messages.</p>
+
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Timestamp</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Properties</th>
+                        </tr>
+                    </thead>
+
+                    {% for message in queue.peek(start, limit) %}
+                    <tr>
+                        <td>{{ message.timestamp|date }}</td>
+                        <td>{{ message.message.name }}</td>
+                        <td>{{ message.class|abbr_class }}</td>
+                        <td>{{ message.message|format_args }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4">There are no pending jobs in this queue.</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                {{ include('_pagination.html.twig', { 'start' : start, 'limit' : limit, 'count' : count }) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

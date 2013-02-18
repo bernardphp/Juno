@@ -1,30 +1,41 @@
-<h2>Queues</h2>
-<p class="lead">The list below contains all the registered queues with the number of jobs currently in the queue. Select a queue from above to view all jobs currently pending on the queue.</p>
+<section id="queues">
+    <header>
+        <h2>Queues</h2>
+    </header>
 
-<div class="row">
-    <div class="span4">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th width="1">Jobs</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                {% for queue in queues if queue.title != 'failed'  %}
-                <tr>
-                    <td><a href="#">{{ queue.title }}</a></td>
-                    <td align="center">{{ queue.count }}</td>
-                </tr>
-                {% endfor %}
-
-                {% set queue = queues.failed %}
-                <tr class="failed">
-                    <td><a href="#">{{ queue.title }}</a></td>
-                    <td align="center">{{ queue.count }}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row-fluid">
+        <div class="span12">
+            <p>The list below contains all the registered queues with the number of messages currently in the queue.
+            Select a queue from below to view all messages currently pending on the queue.</p>
+        </div>
     </div>
-</div>
+
+    <div class="row-fluid">
+        <div class="span4">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th width="1">Messages</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for queue in queues if queue.name != 'failed'  %}
+                    <tr>
+                        <td><a href="{{ app.router.generate('queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                        <td align="center">{{ queue.count }}</td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr class="failed">
+                        {% set queue = queues.failed %}
+
+                        <td><a href="{{ app.router.generate('queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                        <td align="center">{{ queue.count }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,5 @@
+#content{border-left:1px solid #b8c1c7;border-radius:5px}
+
+table tr.failed td { border-top:2px solid; font-size:90%; }
+table tr.failed td { background:#ffecec; border-top:2px solid #d37474; font-size:90%; color:#d37474;}
+table tr.failed td a{ color:#d37474;}
