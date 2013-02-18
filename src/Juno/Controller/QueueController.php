@@ -12,7 +12,7 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        return $this->render('Queue/index.html.twig', array(
+        return $this->render('@Juno/Queue/index.html.twig', array(
             'queues' => $this->app['raekke.queue_manager'],
         ));
     }
@@ -29,7 +29,7 @@ class QueueController extends \Flint\Controller\Controller
             return $this->app->abort(404, 'Queue "' . $queue . '" does not exits.');
         }
 
-        return $this->render('Queue/show.html.twig', array(
+        return $this->render('@Juno/Queue/show.html.twig', array(
             'queue' => $queues->get($queue),
         ));
     }
@@ -43,6 +43,6 @@ class QueueController extends \Flint\Controller\Controller
         $queues = $this->app['raekke.queue_manager'];
         $queues->remove($queue);
 
-        return $this->redirect($this->app['router']->generate('queue_index'));
+        return $this->redirect($this->app['router']->generate('juno_queue_index'));
     }
 }

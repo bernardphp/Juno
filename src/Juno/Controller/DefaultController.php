@@ -14,6 +14,6 @@ class DefaultController extends \Flint\Controller\Controller
     {
         $queues = $this->app['raekke.queue_manager'];
 
-        return $this->render('index.html.twig', compact('queues'));
+        return $this->render('@Juno/index.html.twig', compact('queues'));
     }
 }

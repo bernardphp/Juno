@@ -1,0 +1,7 @@
+{% extends '@Juno/layout.html.twig' %}
+
+{% block tab 'Queues' %}
+
+{% block body %}
+    {{ include('@Juno/Queue/_list.html.twig', { 'queues' : queues, 'app' : app }, false) }}
+{% endblock %}

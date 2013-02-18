@@ -6,18 +6,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="/css/inspiritas.css" rel="stylesheet">
-        <link href="/css/juno.css" rel="stylesheet">
+        <link href="{{ app.request.basePath }}/juno/inspiritas.css" rel="stylesheet">
+        <link href="{{ app.request.basePath }}/juno/juno.css" rel="stylesheet">
     </head>
 
     <body>
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="{{ app.router.generate('homepage') }}">Juno</a>
+                    <a class="brand" href="{{ app.router.generate('juno_homepage') }}">Juno</a>
 
                     <ul class="nav">
-                        {% set tabs = { 'Overview' : 'homepage', 'Queues' : 'queue_index', 'Failed' : 'failed_index' } %}
+                        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue_index', 'Failed' : 'juno_failed_index' } %}
 
                         {% for title, path in tabs %}
                             <li{{ block('tab') == title ? ' class="active"' : '' }}>

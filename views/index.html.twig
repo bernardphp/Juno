@@ -1,9 +1,0 @@
-{% extends 'layout.html.twig' %}
-
-{% block tab 'Overview' %}
-
-{% block body %}
-    {{ include('Queue/_list.html.twig', { 'queues' : queues, 'app' : app }, false) }}
-
-    {{ include('Worker/_list.html.twig', { 'workers' : [], 'app' : app }, false) }}
-{% endblock %}

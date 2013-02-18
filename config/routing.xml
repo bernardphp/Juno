@@ -3,25 +3,25 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="homepage" pattern="/">
+    <route id="juno_homepage" pattern="/">
         <default key="_controller">Juno\Controller\DefaultController::indexAction</default>
     </route>
 
-    <route id="queue_index" pattern="/queue">
+    <route id="juno_queue_index" pattern="/queue">
         <default key="_controller">Juno\Controller\QueueController::indexAction</default>
     </route>
 
-    <route id="queue_show" pattern="/queue/{queue}">
+    <route id="juno_queue_show" pattern="/queue/{queue}">
         <default key="_controller">Juno\Controller\QueueController::showAction</default>
 
         <requirement key="_method">GET</requirement>
     </route>
 
-    <route id="queue_delete" pattern="/queue/{queue}">
+    <route id="juno_queue_delete" pattern="/queue/{queue}">
         <default key="_controller">Juno\Controller\QueueController::deleteAction</default>
 
         <requirement key="_method">DELETE</requirement>
     </route>
 
-    <route id="failed_index" pattern="/queue/failed" />
+    <route id="juno_failed_index" pattern="/queue/failed" />
 </routes>

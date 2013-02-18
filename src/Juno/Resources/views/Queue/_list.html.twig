@@ -23,7 +23,7 @@
                 <tbody>
                     {% for queue in queues if queue.name != 'failed'  %}
                     <tr>
-                        <td><a href="{{ app.router.generate('queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                        <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
                         <td align="center">{{ queue.count }}</td>
                     </tr>
                     {% endfor %}
@@ -31,7 +31,7 @@
                     <tr class="failed">
                         {% set queue = queues.failed %}
 
-                        <td><a href="{{ app.router.generate('queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                        <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
                         <td align="center">{{ queue.count }}</td>
                     </tr>
                 </tbody>

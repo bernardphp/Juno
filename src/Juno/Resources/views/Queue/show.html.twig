@@ -1,4 +1,4 @@
-{% extends 'layout.html.twig' %}
+{% extends '@Juno/layout.html.twig' %}
 
 {% set failed = queue.name == 'failed' %}
 {% set start = app.request.query.get('start', 0) %}
@@ -12,7 +12,7 @@
         <header>
             <div class="pull-right">
                 {% if not failed %}
-                    <form action="{{ app.router.generate('queue_delete', { 'queue' : queue.name }) }}" method="post">
+                    <form action="{{ app.router.generate('juno_queue_delete', { 'queue' : queue.name }) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />
                         <button class="btn btn-danger" type="submit" onclick="return confirm('Are you absolutely sure? This cannot be undone.');">Remove Queue</button>
                     </form>
@@ -51,7 +51,7 @@
                     {% endfor %}
                 </table>
 
-                {{ include('_pagination.html.twig', { 'start' : start, 'limit' : limit, 'count' : count }) }}
+                {{ include('@Juno/_pagination.html.twig', { 'start' : start, 'limit' : limit, 'count' : count }) }}
             </div>
         </div>
     </section>
