@@ -1,3 +1,6 @@
+{% if app.request.xmlHttpRequest %}
+    {{ block('body') }}
+{% else %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,7 +35,7 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="content">
+                    <div id="content" data-poll="1">
                         {{ block('body') }}
                     </div>
                 </div>
@@ -47,5 +50,9 @@
                 </div>
             <div>
         </div>
+
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="/juno/application.js"></script>
     </body>
 </html>
+{% endif %}
