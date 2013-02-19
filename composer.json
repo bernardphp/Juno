@@ -1,4 +1,8 @@
 {
+    "name" : "henrikbjorn/juno",
+    "description" : "Silex application for monitoring Raekke",
+    "license" : "MIT",
+
     "autoload" : {
         "psr-0" : { "" : "src/" }
     },
