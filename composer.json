@@ -8,8 +8,9 @@
     },
 
     "require" : {
-        "henrikbjorn/flint"  : "~1.0",
-        "silex/silex"        : "dev-master",
-        "symfony/twig-bridge" : "dev-master"
+        "henrikbjorn/flint"       : "~1.0",
+        "silex/silex"             : "dev-master",
+        "symfony/twig-bridge"     : "dev-master",
+        "predis/service-provider" : "dev-master"
     }
 }

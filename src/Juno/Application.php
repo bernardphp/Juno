@@ -4,6 +4,7 @@ namespace Juno;
 
 use Juno\Provider\JunoServiceProvider;
 use Juno\Provider\RaekkeServiceProvider;
+use Predis\Silex\MultiPredisServiceProvider;
 
 /**
  * @package Juno
@@ -14,6 +15,7 @@ class Application extends \Flint\Application
     {
         parent::__construct($rootDir, $debug);
 
+        $this->register(new MultiPredisServiceProvider);
         $this->register(new JunoServiceProvider);
         $this->register(new RaekkeServiceProvider);
     }
