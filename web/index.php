@@ -3,7 +3,6 @@
 use Symfony\Component\HttpKernel\Debug\ErrorHandler;
 
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../vendor/henrikbjorn/raekke/vendor/autoload.php';
 
 ErrorHandler::register();
 
@@ -25,5 +24,4 @@ $app->inject(array(
     ),
 ));
 
-// Run the thing
 $app->run();

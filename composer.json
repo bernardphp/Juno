@@ -10,7 +10,8 @@
     "require" : {
         "henrikbjorn/flint"       : "~1.0",
         "silex/silex"             : "dev-master",
-        "symfony/twig-bridge"     : "dev-master",
-        "predis/service-provider" : "dev-master"
+        "henrikbjorn/raekke"      : "dev-master",
+        "predis/service-provider" : "dev-master",
+        "symfony/twig-bridge"     : "dev-master"
     }
 }
