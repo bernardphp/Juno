@@ -23,13 +23,18 @@
                     <a class="brand" href="{{ app.router.generate('juno_homepage') }}">Juno</a>
 
                     <ul class="nav">
-
                         {% for title, path in tabs %}
                             <li{{ tab == title ? ' class="active"' : '' }}>
                                 <a href="{{ app.router.generate(path) }}">{{ title }}</a>
                             </li>
                         {% endfor %}
                     </ul>
+
+                    {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue_index'] %}
+                        <div class="pull-right">
+                            <a href="javascript:null" id="poller" class="btn btn-small btn-primary">Start polling</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -37,7 +42,7 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="content"{{ app.request.get('_route') in ['juno_homepage', 'juno_queue_index'] ? ' data-poll="1"' : '' }}>
+                    <div id="content">
                         {{ block('body') }}
                     </div>
                 </div>

@@ -8,6 +8,7 @@
 #footer p{margin:5px 10px}
 
 .navbar .brand{margin-left:0;padding-left:0}
+.navbar a.btn{color:#fff;font-size:13px}
 .text-right, td.text-right{text-align:right}
 
 table tr.failed td { border-top:2px solid; font-size:90%; }
