@@ -8,7 +8,14 @@
 #footer p{margin:5px 10px}
 
 .navbar .brand{margin-left:0;padding-left:0}
+.text-right, td.text-right{text-align:right}
 
 table tr.failed td { border-top:2px solid; font-size:90%; }
 table tr.failed td { background:#ffecec; border-top:2px solid #d37474; font-size:90%; color:#d37474;}
 table tr.failed td a{ color:#d37474;}
+
+table.table-bordered{border-radius:0;}
+table.table-bordered thead:first-child tr:first-child th:first-child,
+table.table-bordered tbody:first-child tr:first-child td:first-child,
+table.table-bordered tbody:last-child tr:last-child td:first-child,
+table.table-bordered tbody:last-child tr:last-child td:last-child{border-radius:0}

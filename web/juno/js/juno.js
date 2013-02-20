@@ -30,7 +30,7 @@ $(document).ready(function(){
     var elm = $('#content');
 
     if (elm.data('poll')) {
-        var juno = new Juno(elm, window.location, 10);
+        var juno = new Juno(elm, window.location, 5);
         juno.poll();
     }
 });
