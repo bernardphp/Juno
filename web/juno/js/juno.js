@@ -1,24 +1,25 @@
-var Juno = function (elm, url, interval) {
+var Juno = function (elm, url, timeout) {
     this.isRunning = false;
     this.elm       = elm;
-    this.interval  = interval * 1000;
+    this.timeout  = timeout * 1000;
     this.url       = url;
 };
 
 Juno.prototype = {
     poll : function () {
-        setInterval($.proxy(function () {
-            if (this.isRunning) {
-                return;
-            }
-
-            this.isRunning = true;
-            this.get();
-
-        }, this), this.interval);
+        setInterval($.proxy(this.interval, this), this.timeout);
     },
     get : function () {
         $.get(this.url, $.proxy(this.callback, this));
+    },
+    interval : function () {
+        if (this.isRunning) {
+            return;
+        }
+
+        this.isRunning = true;
+        this.get();
+
     },
     callback : function (data) {
         this.isRunning = false;
