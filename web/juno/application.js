@@ -1,8 +1,8 @@
 var Juno = function (elm, url, interval) {
-    this.isUpdating = false;
-    this.elm        = $(elm);
-    this.interval   = interval * 1000;
-    this.url        = url;
+    this.isRunning = false;
+    this.elm       = elm;
+    this.interval  = interval * 1000;
+    this.url       = url;
 };
 
 Juno.prototype = {
@@ -30,7 +30,7 @@ $(document).ready(function(){
     var elm = $('#content');
 
     if (elm.data('poll')) {
-        var juno = new Juno('#content', window.location, 5);
+        var juno = new Juno(elm, window.location, 10);
         juno.poll();
     }
 });
