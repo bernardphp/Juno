@@ -14,16 +14,18 @@
     </head>
 
     <body>
+        {% set tab = block('tab', 'Overview') %}
+        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue_index', 'Failed' : 'juno_failed_index' } %}
+
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="brand" href="{{ app.router.generate('juno_homepage') }}">Juno</a>
 
                     <ul class="nav">
-                        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue_index', 'Failed' : 'juno_failed_index' } %}
 
                         {% for title, path in tabs %}
-                            <li{{ block('tab') == title ? ' class="active"' : '' }}>
+                            <li{{ tab == title ? ' class="active"' : '' }}>
                                 <a href="{{ app.router.generate(path) }}">{{ title }}</a>
                             </li>
                         {% endfor %}
@@ -35,7 +37,7 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="content" data-poll="1">
+                    <div id="content"{{ tab in ['Overview', 'Queues'] ? ' data-poll="1"' : '' }}>
                         {{ block('body') }}
                     </div>
                 </div>

@@ -18,9 +18,7 @@ Juno.prototype = {
         }, this), this.interval);
     },
     get : function () {
-        $.get(this.url, $.proxy(function (data) {
-            this.callback(data);
-        }, this));
+        $.get(this.url, $.proxy(this.callback, this));
     },
     callback : function (data) {
         this.isRunning = false;
