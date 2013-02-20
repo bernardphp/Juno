@@ -66,10 +66,14 @@ Juno.prototype = {
     onJunoPollerStart : function (e) {
         this.button.innerHTML = 'Polling....';
         this.button.classList.toggle('active');
+
+        window.location.hash = '#poll';
     },
     onJunoPollerStop : function (e) {
         this.button.innerHTML = 'Start polling';
         this.button.classList.toggle('active');
+
+        window.location.hash = '';
     },
     onButtonClick : function (e) {
         if (this.poller.isStarted()) {
