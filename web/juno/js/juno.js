@@ -1,6 +1,6 @@
 var JunoPoller = function (elm, url, timeout) {
     this.isRunning = false;
-    this.timer     = false;
+    this.timer     = null;
     this.elm       = elm;
     this.timeout   = timeout * 1000;
     this.url       = url;
@@ -8,7 +8,7 @@ var JunoPoller = function (elm, url, timeout) {
 
 JunoPoller.prototype = {
     start : function () {
-        if (this.timer) {
+        if (this.isStarted()) {
             return;
         }
 
@@ -20,15 +20,18 @@ JunoPoller.prototype = {
         this.elm.dispatchEvent(new CustomEvent('JunoPollerStart'));
     },
     stop: function () {
-        if (this.timer) {
-            clearInterval(this.timer);
+        if (!this.isStarted()) {
+            return;
         }
 
+        clearInterval(this.timer);
+
+        this.timer = null;
         this.isRunning = false;
         this.elm.dispatchEvent(new CustomEvent('JunoPollerStop'));
     },
     isStarted : function () {
-        return this.timer ? true : false;
+        return this.timer === null ? false : true;
     },
     get : function () {
         $.get(this.url, $.proxy(this.callback, this));
