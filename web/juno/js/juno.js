@@ -1,13 +1,32 @@
-var Juno = function (elm, url, timeout) {
+var JunoPoller = function (elm, url, timeout) {
     this.isRunning = false;
+    this.timer     = false;
     this.elm       = elm;
-    this.timeout  = timeout * 1000;
+    this.timeout   = timeout * 1000;
     this.url       = url;
 };
 
-Juno.prototype = {
-    poll : function () {
-        setInterval($.proxy(this.interval, this), this.timeout);
+JunoPoller.prototype = {
+    start : function () {
+        if (this.timer) {
+            return;
+        }
+
+        if (this.isRunning) {
+            return;
+        }
+
+        this.timer = setInterval($.proxy(this.interval, this), this.timeout);
+    },
+    stop: function () {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
+
+        this.isRunning = false;
+    },
+    isStarted : function () {
+        return this.timer ? true : false;
     },
     get : function () {
         $.get(this.url, $.proxy(this.callback, this));
@@ -27,10 +46,12 @@ Juno.prototype = {
 };
 
 $(document).ready(function(){
-    var elm = $('#content');
+    var content = $('#content'),
+        poller  = new JunoPoller(content, window.location, 5);
 
-    if (elm.data('poll')) {
-        var juno = new Juno(elm, window.location, 5);
-        juno.poll();
+    if (!content.data('poll')) {
+        return;
     }
+
+    poller.start();
 });
