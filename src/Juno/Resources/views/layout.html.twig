@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row-fluid">
                 <div class="span12">
-                    <div id="content"{{ tab in ['Overview', 'Queues'] ? ' data-poll="1"' : '' }}>
+                    <div id="content"{{ app.request.get('_route') in ['juno_index', 'juno_queue_index'] ? ' data-poll="1"' : '' }}>
                         {{ block('body') }}
                     </div>
                 </div>
