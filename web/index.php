@@ -13,7 +13,7 @@ $debug = in_array($_SERVER['REMOTE_ADDR'], array(
     '::ffff:127.0.0.1',
 ));
 
-$app = new Juno\Application($rootDir = __DIR__ . '/..', true);
+$app = new Juno\Application($rootDir = __DIR__ . '/..', $debug);
 $app->inject(array(
     'routing.resource' => $rootDir . '/src/Juno/Resources/config/routing.xml',
     'predis.clients' => array(
