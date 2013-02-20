@@ -19,7 +19,6 @@ Juno.prototype = {
 
         this.isRunning = true;
         this.get();
-
     },
     callback : function (data) {
         this.isRunning = false;
