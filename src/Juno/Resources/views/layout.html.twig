@@ -9,8 +9,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="{{ app.request.basePath }}/juno/inspiritas.css" rel="stylesheet">
-        <link href="{{ app.request.basePath }}/juno/juno.css" rel="stylesheet">
+        <link href="{{ app.request.basePath }}/juno/inspiritas/inspiritas.css" rel="stylesheet">
+        <link href="{{ app.request.basePath }}/juno/css/juno.css" rel="stylesheet">
     </head>
 
     <body>
@@ -54,7 +54,7 @@
         </div>
 
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="/juno/application.js"></script>
+        <script src="{{ app.request.basePath }} /juno/js/juno.js"></script>
     </body>
 </html>
 {% endif %}
