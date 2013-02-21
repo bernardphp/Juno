@@ -20,9 +20,6 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
     {
         $app['jms_serializer.builder'] = $app->share($app->extend('jms_serializer.builder', function ($builder) {
             $builder->addMetadataDir(__DIR__ . '/../../../vendor/henrikbjorn/raekke/src/Raekke/Resources/serializer', 'Raekke');
-            $builder->configureHandlers(function ($registry) {
-                $registry->registerSubscribingHandler(new Serializer\Handler\MessageWrapperHandler);
-            });
 
             return $builder;
         }));

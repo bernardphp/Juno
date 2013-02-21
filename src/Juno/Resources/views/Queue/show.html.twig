@@ -42,7 +42,7 @@
                         <td>{{ message.timestamp|date }}</td>
                         <td>{{ message.name }}</td>
                         <td>{{ message.class|abbr_class }}</td>
-                        <td>{{ message.message|format_args }}</td>
+                        <td>{{ message.message|format_args|default('No arguments') }}</td>
                     </tr>
                     {% else %}
                     <tr>
