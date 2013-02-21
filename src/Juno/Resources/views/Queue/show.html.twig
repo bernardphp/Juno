@@ -33,14 +33,14 @@
                             <th>Timestamp</th>
                             <th>Name</th>
                             <th>Class</th>
-                            <th>Properties</th>
+                            <th>Arguments</th>
                         </tr>
                     </thead>
 
                     {% for message in queue.peek(start, limit) %}
                     <tr>
                         <td>{{ message.timestamp|date }}</td>
-                        <td>{{ message.message.name }}</td>
+                        <td>{{ message.name }}</td>
                         <td>{{ message.class|abbr_class }}</td>
                         <td>{{ message.message|format_args }}</td>
                     </tr>

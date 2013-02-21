@@ -12,6 +12,7 @@
         "silex/silex"             : "dev-master",
         "henrikbjorn/raekke"      : "dev-master",
         "predis/service-provider" : "dev-master",
-        "symfony/twig-bridge"     : "dev-master"
+        "symfony/twig-bridge"     : "dev-master",
+        "jms/serializer"          : "dev-master"
     }
 }
