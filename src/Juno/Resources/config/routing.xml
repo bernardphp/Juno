@@ -24,4 +24,12 @@
     </route>
 
     <route id="juno_failed_index" pattern="/queue/failed" />
+
+    <route id="juno_info_index" pattern="/info">
+        <default key="_controller">Juno\Controller\InfoController::indexAction</default>
+    </route>
+
+    <route id="juno_info_connection" pattern="/info/connection">
+        <default key="_controller">Juno\Controller\InfoController::connectionAction</default>
+    </route>
 </routes>

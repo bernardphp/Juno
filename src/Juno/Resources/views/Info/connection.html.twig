@@ -1,0 +1,33 @@
+{% extends '@Juno/layout.html.twig' %}
+
+{% block tab 'Info' %}
+
+{% block body %}
+    <section id="Connection">
+        <header>
+            <h2>Connection</h2>
+        </header>
+
+        <div class="row-fluid">
+            <p>The information below gives a good overview of the current connection. The information displayed is specific to the
+            connection type used. In case you forgot you are using "<strong>Redis</strong>".</p>
+
+            {% for key, info in redis %}
+                    <header class="sub-header">
+                        <h3>{{ key }}</h3>
+                    </header>
+
+                    <table class="table table-bordered table-hover">
+                        <tbody>
+                            {% for key, value in info %}
+                                <tr>
+                                    <th width="50%">{{ key }}</th>
+                                    <td>{{ value|keys ? value|format_args : value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
