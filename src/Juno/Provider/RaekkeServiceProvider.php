@@ -19,7 +19,8 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
     public function register(Application $app)
     {
         $app['jms_serializer.builder'] = $app->share($app->extend('jms_serializer.builder', function ($builder) {
-            $builder->addMetadataDir(__DIR__ . '/../../../vendor/henrikbjorn/raekke/src/Raekke/Resources/serializer', 'Raekke');
+            $r = new \ReflectionClass('Raekke\Connection');
+            $builder->addMetadataDir(dirname($r->getFilename()) . '/Resources/serializer', 'Raekke');
 
             return $builder;
         }));
