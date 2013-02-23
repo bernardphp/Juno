@@ -17,12 +17,14 @@
 
             <table class="table table-bordered table-hover">
                 <tbody>
-                    {% for key, value in stats %}
-                        <tr>
-                            <th width="50%">{{ key }}</th>
-                            <td>{{ value|keys ? value|format_args : value }}</td>
-                        </tr>
-                    {% endfor %}
+                    <tr>
+                        <th width="50%">Pending</th>
+                        <td>{{ pending }}</td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Queues</th>
+                        <td>{{ queues }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
