@@ -8,6 +8,4 @@ application.
 Juno is build on top of inspiritas which is a bootstrap theme and therefor is completely responsive. Gives great overview
 on your phone or tablet.
 
-![Overview - Juno](http://i.imgur.com/92sLDt5.png)
-
 ![Overview - Juno](http://i.imgur.com/PGJzs50.png)
