@@ -12,7 +12,21 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        return $this->app['twig']->render('@Juno/Info/index.html.twig');
+        $queues = $this->app['raekke.queue_manager'];
+        $redis = $this->app['predis']['raekke'];
+        $pending = array_reduce($queues->all()->getValues(), function ($v, $queue) {
+            return $v + $queue->count();
+        });
+
+        return $this->app['twig']->render('@Juno/Info/index.html.twig', array(
+            'stats' => array(
+                'Pending' => $pending,
+                'Queues'  => $queues->count(),
+                'Servers' => array(
+                    $redis->getConnection()->__toString(),
+                ),
+            ),
+        ));
     }
 
     /**

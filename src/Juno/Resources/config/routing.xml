@@ -7,7 +7,7 @@
         <default key="_controller">Juno\Controller\DefaultController::indexAction</default>
     </route>
 
-    <route id="juno_queue_index" pattern="/queue">
+    <route id="juno_queue" pattern="/queue">
         <default key="_controller">Juno\Controller\QueueController::indexAction</default>
     </route>
 
@@ -23,9 +23,9 @@
         <requirement key="_method">DELETE</requirement>
     </route>
 
-    <route id="juno_failed_index" pattern="/queue/failed" />
+    <route id="juno_failed" pattern="/queue/failed" />
 
-    <route id="juno_info_index" pattern="/info">
+    <route id="juno_info" pattern="/info">
         <default key="_controller">Juno\Controller\InfoController::indexAction</default>
     </route>
 

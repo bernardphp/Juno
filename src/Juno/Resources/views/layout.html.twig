@@ -15,7 +15,7 @@
 
     <body>
         {% set tab = block('tab', 'Overview') %}
-        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue_index', 'Failed' : 'juno_failed_index', 'Info' : 'juno_info_connection' } %}
+        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue', 'Failed' : 'juno_failed', 'Info' : 'juno_info' } %}
 
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
@@ -30,7 +30,7 @@
                         {% endfor %}
                     </ul>
 
-                    {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue_index'] %}
+                    {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue'] %}
                         <div class="pull-right">
                             <a href="javascript:null" id="poller" class="btn btn-small btn-primary">Start polling</a>
                         </div>

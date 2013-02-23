@@ -1,2 +1,31 @@
 {% extends '@Juno/layout.html.twig' %}
 
+{% block tab 'Info' %}
+
+{% block body %}
+    <section id="raekke">
+        <header>
+            <div class="pull-right">
+                <a class="btn btn-mini btn-primary" href="{{ app.router.generate('juno_info_connection') }}">Connection</a>
+            </div>
+
+            <h2>Raekke</h2>
+        </header>
+
+        <div class="row-fluid">
+            <p>General information about the state of your <strong>Raekke</strong> deployment.</p>
+
+            <table class="table table-bordered table-hover">
+                <tbody>
+                    {% for key, value in stats %}
+                        <tr>
+                            <th width="50%">{{ key }}</th>
+                            <td>{{ value|keys ? value|format_args : value }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}
+

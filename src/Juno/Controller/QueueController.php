@@ -25,7 +25,7 @@ class QueueController extends \Flint\Controller\Controller
     {
         $queues = $this->app['raekke.queue_manager'];
 
-        if (!$queues->has($queue)) {
+        if ($queue !== 'failed' && !$queues->has($queue)) {
             return $this->app->abort(404, 'Queue "' . $queue . '" does not exits.');
         }
 
