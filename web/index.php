@@ -18,7 +18,7 @@ $app->inject(array(
     'routing.resource' => $rootDir . '/src/Juno/Resources/config/routing.xml',
     'predis.clients' => array(
         'raekke' => array(
-            'parameters' => array('tcp://localhost', 'tcp://localhost:3307'),
+            'parameters' => 'tcp://localhost',
             'options' => array('prefix' => 'raekke:'),
         ),
     ),
