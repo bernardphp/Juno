@@ -35,23 +35,25 @@
                             <th>Name</th>
                             <th class="hidden-phone">Retries</th>
                             <th class="hidden-phone">Class</th>
-                            <th class="visible-desktop">Arguments</th>
+                            <th class="hidden-phone hidden-tablet">Arguments</th>
                         </tr>
                     </thead>
 
-                    {% for message in queue.peek(start, limit) %}
-                    <tr>
-                        <td>{{ message.timestamp|date }}</td>
-                        <td>{{ message.name }}</td>
-                        <td class="hidden-phone">{{ message.retries }}</td>
-                        <td class="hidden-phone">{{ message.class|abbr_class }}</td>
-                        <td class="visible-desktop">{{ message.message|format_args|default('No arguments') }}</td>
-                    </tr>
-                    {% else %}
-                    <tr>
-                        <td colspan="5">There are no pending jobs in this queue.</td>
-                    </tr>
-                    {% endfor %}
+                    <tbody>
+                        {% for message in queue.peek(start, limit) %}
+                            <tr>
+                                <td>{{ message.timestamp|date }}</td>
+                                <td>{{ message.name }}</td>
+                                <td class="hidden-phone">{{ message.retries }}</td>
+                                <td class="hidden-phone">{{ message.class|abbr_class }}</td>
+                                <td class="hidden-phone hidden-tablet">{{ message.message|format_args|default('No arguments') }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5">There are no pending jobs in this queue.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
 
                 {{ include('@Juno/_pagination.html.twig', { 'start' : start, 'limit' : limit, 'count' : count }) }}

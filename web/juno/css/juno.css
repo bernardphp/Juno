@@ -21,10 +21,4 @@ table.table-bordered tbody:first-child tr:first-child td:first-child,
 table.table-bordered tbody:last-child tr:last-child td:first-child,
 table.table-bordered tbody:last-child tr:last-child td:last-child{border-radius:0}
 
-@media only screen and (min-device-width: 320px) {
-
-}
-
-@media only screen and (min-device-width: 480px) {
-
-}
+p:last-child{margin-bottom:0}
