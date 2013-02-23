@@ -17,7 +17,7 @@
                 </thead>
 
                 <tbody>
-                    {% for queue in queues if queue.name != 'failed'  %}
+                    {% for queue in queues.all if queue.name != 'failed'  %}
                     <tr>
                         <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
                         <td class="text-right">{{ queue.count }}</td>
