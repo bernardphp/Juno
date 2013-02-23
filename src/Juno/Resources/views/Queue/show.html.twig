@@ -32,20 +32,20 @@
                     <thead>
                         <tr>
                             <th>Timestamp</th>
-                            <th>Retries</th>
                             <th>Name</th>
-                            <th>Class</th>
-                            <th>Arguments</th>
+                            <th class="hidden-phone">Retries</th>
+                            <th class="hidden-phone">Class</th>
+                            <th class="visible-desktop">Arguments</th>
                         </tr>
                     </thead>
 
                     {% for message in queue.peek(start, limit) %}
                     <tr>
                         <td>{{ message.timestamp|date }}</td>
-                        <td>{{ message.retries }}</td>
                         <td>{{ message.name }}</td>
-                        <td>{{ message.class|abbr_class }}</td>
-                        <td>{{ message.message|format_args|default('No arguments') }}</td>
+                        <td class="hidden-phone">{{ message.retries }}</td>
+                        <td class="hidden-phone">{{ message.class|abbr_class }}</td>
+                        <td class="visible-desktop">{{ message.message|format_args|default('No arguments') }}</td>
                     </tr>
                     {% else %}
                     <tr>

@@ -20,21 +20,29 @@
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
                     <a class="brand" href="{{ app.router.generate('juno_homepage') }}">Juno</a>
 
-                    <ul class="nav">
-                        {% for title, path in tabs %}
-                            <li{{ tab == title ? ' class="active"' : '' }}>
-                                <a href="{{ app.router.generate(path) }}">{{ title }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            {% for title, path in tabs %}
+                                <li{{ tab == title ? ' class="active"' : '' }}>
+                                    <a href="{{ app.router.generate(path) }}">{{ title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
 
-                    {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue'] %}
-                        <div class="pull-right">
-                            <a href="javascript:null" id="poller" class="btn btn-small btn-primary">Start polling</a>
-                        </div>
-                    {% endif %}
+                        {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue'] %}
+                            <div class="pull-right visible-desktop">
+                                <a href="javascript:null" id="poller" class="btn btn-small btn-primary">Start polling</a>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +67,8 @@
         </div>
 
         <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="{{ app.request.basePath }} /juno/js/juno.js"></script>
+        <script src="{{ app.request.basePath }}/juno/inspiritas/bootstrap/bootstrap-collapse.js"></script>
+        <script src="{{ app.request.basePath }}/juno/js/juno.js"></script>
     </body>
 </html>
 {% endif %}
