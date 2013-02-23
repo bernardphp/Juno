@@ -1,11 +1,11 @@
 Juno
 ====
 
-__NOT READY YET__
+Juno provides a web interface for monitoring [Raekke](http://github.com/henrikbjorn/Raekke) and its connections..
+Juno is built ontop of Flint but can be used standalone by including the service provider and routing into your own
+application.
 
-Wife of Jupitor. Apparently very nagging and distrustful.
+Juno is build on top of inspiritas which is a bootstrap theme and therefor is completely responsive. Gives great overview
+on your phone or tablet.
 
-Juno provides a web interface for monitoring [Raekke](http://github.com/henrikbjorn/Raekke) and its redis server(s).
-Juno is built ontop of Flint but can be used standalone by including the service provider and routing into your own application.
-
-![Overview - Juno](http://i.imgur.com/4S0HJiF.png)
+![Overview - Juno](http://i.imgur.com/PGJzs50.png)
