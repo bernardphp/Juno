@@ -3,5 +3,41 @@
 {% block tab 'Queues' %}
 
 {% block body %}
-    {{ include('@Juno/Queue/_list.html.twig', { 'queues' : queues, 'app' : app }, false) }}
+    <section id="queues">
+        <header>
+            <h2>Queues</h2>
+        </header>
+
+        <div class="row-fluid">
+            <div class="span12">
+                <p>The list below contains all the registered queues with the number of messages currently in the queue.
+                Select a queue from below to view all messages currently pending on the queue.</p>
+
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th width="1">Messages</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for queue in queues.all if queue.name != 'failed'  %}
+                        <tr>
+                            <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                            <td class="text-right">{{ queue.count }}</td>
+                        </tr>
+                        {% endfor %}
+
+                        <tr class="failed">
+                            {% set queue = queues.create('failed') %}
+
+                            <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                            <td class="text-right">{{ queue.count }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 {% endblock %}

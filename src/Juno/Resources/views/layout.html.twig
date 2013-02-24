@@ -1,4 +1,4 @@
-{% if app.request.xmlHttpRequest %}
+{% if app.request.xmlHttpRequest or app.request.query.has('_partial') %}
     {{ block('body') }}
 {% else %}
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 
     <body>
         {% set tab = block('tab', 'Overview') %}
-        {% set tabs = { 'Overview' : 'juno_homepage', 'Queues' : 'juno_queue', 'Failed' : 'juno_failed', 'Info' : 'juno_info' } %}
+        {% set tabs = { 'Overview' : 'juno_homepage', 'Workers' : 'juno_worker', 'Queues' : 'juno_queue', 'Failed' : 'juno_failed', 'Info' : 'juno_info' } %}
 
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
@@ -37,7 +37,7 @@
                             {% endfor %}
                         </ul>
 
-                        {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue'] %}
+                        {% if app.request.attributes.get('_route') in ['juno_homepage', 'juno_queue', 'juno_worker'] %}
                             <div class="pull-right visible-desktop">
                                 <a href="javascript:null" id="poller" class="btn btn-small btn-primary">Start polling</a>
                             </div>

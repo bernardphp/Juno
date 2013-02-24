@@ -1,9 +1,0 @@
-{% extends '@Juno/layout.html.twig' %}
-
-{% block tab 'Overview' %}
-
-{% block body %}
-    {{ include('@Juno/Queue/_list.html.twig', { 'queues' : queues, 'app' : app }, false) }}
-
-    {{ include('@Juno/Worker/_list.html.twig', { 'workers' : [], 'app' : app }, false) }}
-{% endblock %}

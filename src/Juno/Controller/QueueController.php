@@ -25,10 +25,8 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function showAction(Request $request, $queue)
     {
-        $queue = $this->app['raekke.queue_factory']->create($queue);
-
         return $this->render('@Juno/Queue/show.html.twig', array(
-            'queue' => $queue,
+            'queue' => $this->app['raekke.queue_factory']->create($queue),
         ));
     }
 
@@ -38,8 +36,7 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function deleteAction($queue)
     {
-        $queues = $this->app['raekke.queue_factory'];
-        $queues->remove($queue);
+        $this->app['raekke.queue_factory']->remove($queue);
 
         return $this->redirect($this->app['router']->generate('juno_queue_index'));
     }

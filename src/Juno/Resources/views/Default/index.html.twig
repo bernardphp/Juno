@@ -1,0 +1,8 @@
+{% extends '@Juno/layout.html.twig' %}
+
+{% block tab 'Overview' %}
+
+{% block body %}
+    {{ render('/queue?_partial=1') }}
+    {{ render('/worker?_partial=1') }}
+{% endblock %}
