@@ -25,7 +25,7 @@
                     {% endfor %}
 
                     <tr class="failed">
-                        {% set queue = queues.get('failed') %}
+                        {% set queue = queues.create('failed') %}
 
                         <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
                         <td class="text-right">{{ queue.count }}</td>

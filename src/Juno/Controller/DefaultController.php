@@ -12,7 +12,7 @@ class DefaultController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        $queues = $this->app['raekke.queue_manager'];
+        $queues = $this->app['raekke.queue_factory'];
 
         return $this->render('@Juno/index.html.twig', compact('queues'));
     }

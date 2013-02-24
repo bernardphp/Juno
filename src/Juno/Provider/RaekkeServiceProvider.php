@@ -2,11 +2,11 @@
 
 namespace Juno\Provider;
 
+use Juno\Twig\CodeExtension;
 use Raekke\Connection;
-use Raekke\QueueManager;
+use Raekke\QueueFactory;
 use Raekke\Serializer;
 use Silex\Application;
-use Juno\Twig\CodeExtension;
 
 /**
  * @package Juno
@@ -33,8 +33,8 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
             return new Connection($app['predis']['raekke']);
         });
 
-        $app['raekke.queue_manager'] = $app->share(function ($app) {
-            return new QueueManager($app['raekke.connection'], $app['raekke.serializer']);
+        $app['raekke.queue_factory'] = $app->share(function ($app) {
+            return new QueueFactory($app['raekke.connection'], $app['raekke.serializer']);
         });
 
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {

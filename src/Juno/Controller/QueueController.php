@@ -2,6 +2,8 @@
 
 namespace Juno\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
+
 /**
  * @package Juno
  */
@@ -13,7 +15,7 @@ class QueueController extends \Flint\Controller\Controller
     public function indexAction()
     {
         return $this->render('@Juno/Queue/index.html.twig', array(
-            'queues' => $this->app['raekke.queue_manager'],
+            'queues' => $this->app['raekke.queue_factory'],
         ));
     }
 
@@ -21,16 +23,12 @@ class QueueController extends \Flint\Controller\Controller
      * @param string $queue
      * @return string
      */
-    public function showAction($queue)
+    public function showAction(Request $request, $queue)
     {
-        $queues = $this->app['raekke.queue_manager'];
-
-        if ($queue !== 'failed' && !$queues->has($queue)) {
-            return $this->app->abort(404, 'Queue "' . $queue . '" does not exits.');
-        }
+        $queue = $this->app['raekke.queue_factory']->create($queue);
 
         return $this->render('@Juno/Queue/show.html.twig', array(
-            'queue' => $queues->get($queue),
+            'queue' => $queue,
         ));
     }
 
@@ -40,7 +38,7 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function deleteAction($queue)
     {
-        $queues = $this->app['raekke.queue_manager'];
+        $queues = $this->app['raekke.queue_factory'];
         $queues->remove($queue);
 
         return $this->redirect($this->app['router']->generate('juno_queue_index'));

@@ -40,7 +40,7 @@
                     </thead>
 
                     <tbody>
-                        {% for message in queue.peek(start, limit) %}
+                        {% for message in queue.slice(start, limit) %}
                             <tr>
                                 <td>{{ message.timestamp|date }}</td>
                                 <td>{{ message.name }}</td>
