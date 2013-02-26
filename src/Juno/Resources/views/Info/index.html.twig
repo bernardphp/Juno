@@ -18,12 +18,20 @@
             <table class="table table-bordered table-hover">
                 <tbody>
                     <tr>
-                        <th width="50%">Pending</th>
+                        <th width="50%">Messages</th>
                         <td>{{ pending }}</td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Failed Messages</th>
+                        <td>{{ failed }}</td>
                     </tr>
                     <tr>
                         <th width="50%">Queues</th>
                         <td>{{ queues }}</td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Consumers</th>
+                        <td>{{ consumers }}</td>
                     </tr>
                 </tbody>
             </table>
