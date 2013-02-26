@@ -23,7 +23,6 @@
             <h2>{{ failed ? "Failed Jobs" : "Pending Jobs on \"#{queue.name}\"" }}</h2>
         </header>
 
-
         <div class="row-fluid">
             <div class="span12">
                 <p>Showing {{ start }} to {{ start + limit }} of <strong>{{ count }}</strong> messages.</p>
@@ -40,7 +39,7 @@
                     </thead>
 
                     <tbody>
-                        {% for message in queue.slice(start, limit) %}
+                        {% for message in queue.slice(queue.count - limit - start, limit) %}
                             <tr>
                                 <td>{{ message.timestamp|date }}</td>
                                 <td>{{ message.name }}</td>
