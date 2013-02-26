@@ -19,10 +19,10 @@ class InfoController extends \Flint\Controller\Controller
         }) - $failed;
 
         return $this->app['twig']->render('@Juno/Info/index.html.twig', array(
-            'pending'  => $pending,
-            'queues'   => $queues->count(),
-            'failed'   => $failed,
-            'consumrs' => 0,
+            'pending'   => $pending,
+            'queues'    => $queues->count(),
+            'failed'    => $failed,
+            'consumers' => 0,
         ));
     }
 
