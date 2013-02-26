@@ -25,8 +25,8 @@
 
     <route id="juno_failed" pattern="/queue/failed" />
 
-    <route id="juno_worker" pattern="/worker">
-        <default key="_controller">Juno\Controller\WorkerController::indexAction</default>
+    <route id="juno_consumer" pattern="/consumer">
+        <default key="_controller">Juno\Controller\ConsumerController::indexAction</default>
     </route>
 
     <route id="juno_info" pattern="/info">

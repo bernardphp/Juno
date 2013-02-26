@@ -1,16 +1,16 @@
 {% extends '@Juno/layout.html.twig' %}
 
-{% block tab 'Workers' %}
+{% block tab 'Consumers' %}
 
 {% block body %}
-    <section id="workers">
+    <section id="consumers">
         <header>
-            <h2>Workers</h2>
+            <h2>Consumers</h2>
         </header>
 
         <div class="row-fluid">
             <div class="span12">
-                <p>The list below contains all registered workers and their status.</p>
+                <p>The list below shows all currently running consumers.</p>
 
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
@@ -20,7 +20,7 @@
                     </thead>
 
                     <tbody>
-                    {% for worker in workers %}
+                    {% for consumer in consumers %}
                     {% else %}
                         <tr>
                             <td colspan="3">Nothing is happening right now...</td>
