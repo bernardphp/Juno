@@ -12,11 +12,11 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        $queues = $this->app['raekke.queue_factory'];
-        $failed = $queues->create('failed')->count();
-        $pending = array_reduce($queues->all()->getValues(), function ($v, $queue) {
+        $queues  = $this->app['raekke.queue_factory'];
+        $failed  = $queues->create('failed')->count();
+        $pending = -$failed + array_reduce($queues->all(), function ($v, $queue) {
             return $v + $queue->count();
-        }) - $failed;
+        });
 
         return $this->app['twig']->render('@Juno/Info/index.html.twig', array(
             'pending'   => $pending,
