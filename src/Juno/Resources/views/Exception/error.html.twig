@@ -6,7 +6,7 @@
     <section id="error">
         <header>
             <h2>{{ status_code }} - {{ status_text }}</h2>
-            {% if exception.previous %}<small>{{ exception.previous.message }}</small>{% endif %}
+            <small>{{ exception.previous.message|default(exception.message) }}</small>
         </header>
 
         <div class="row-fluid">
