@@ -15,6 +15,9 @@ class JunoServiceProvider implements \Silex\ServiceProviderInterface
      */
     public function register(Application $app)
     {
+        $app['exception_controller'] = 'Juno\\Controller\\ExceptionController::showAction';
+        $app['routing.resource'] = __DIR__ . '/../Resources/config/routing.xml';
+
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
             $twig->addExtension(new CodeExtension);
 

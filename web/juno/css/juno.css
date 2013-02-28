@@ -10,6 +10,9 @@
 .navbar .brand{margin-left:0;padding-left:0}
 .navbar a.btn{color:#fff;font-size:13px}
 .text-right, td.text-right{text-align:right}
+.text-center{text-align:center}
+
+header small{padding-bottom:5px;top:-5px;position:relative;display:block;}
 
 table tr.failed td { border-top:2px solid; font-size:90%; }
 table tr.failed td { background:#ffecec; border-top:2px solid #d37474; font-size:90%; color:#d37474;}

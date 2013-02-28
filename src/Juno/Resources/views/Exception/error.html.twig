@@ -1,0 +1,18 @@
+{% extends '@Juno/layout.html.twig' %}
+
+{% block title 'Ohh snap! This is not what you are looking for' %}
+
+{% block body %}
+    <section id="error">
+        <header>
+            <h2>{{ status_code }} - {{ status_text }}</h2>
+            {% if exception.previous %}<small>{{ exception.previous.message }}</small>{% endif %}
+        </header>
+
+        <div class="row-fluid">
+            <div class="span12 text-center">
+                <img src="/juno/img/cat.gif" alt="Cat" />
+            </div>
+        </div>
+    </section>
+{% endblock %}
