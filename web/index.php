@@ -8,7 +8,7 @@ $app->inject(array(
         'cache_dir' => $rootDir . '/cache/routing',
     ),
     'twig.options' => array(
-        'cache' =>false, // $rootDir . '/cache/twig',
+        'cache' => $rootDir . '/cache/twig',
     ),
     'predis.clients' => array(
         'raekke' => array(
