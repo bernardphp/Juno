@@ -25,8 +25,14 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function showAction(Request $request, $queue)
     {
+        $queue = $this->app['raekke.queue_factory']->create($queue);
+
         return $this->render('@Juno/Queue/show.html.twig', array(
-            'queue' => $this->app['raekke.queue_factory']->create($queue),
+            'queue' => $queue,
+            'count' => $queue->count(),
+            'failed' => $queue->getName() === 'failed',
+            'start' => $request->query->get('start', 0),
+            'limit' => $request->query->get('limit', 20),
         ));
     }
 

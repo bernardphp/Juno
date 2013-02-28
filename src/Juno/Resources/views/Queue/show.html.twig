@@ -1,10 +1,5 @@
 {% extends '@Juno/layout.html.twig' %}
 
-{% set failed = queue.name == 'failed' %}
-{% set start = app.request.query.get('start', 0) %}
-{% set limit = app.request.query.get('limit', 20) %}
-{% set count = queue.count %}
-
 {% block tab failed ? 'Failed' : 'Queues' %}
 {% block title failed ? "Failed" : "\"#{queue.name}\"" %}
 
@@ -39,7 +34,7 @@
                     </thead>
 
                     <tbody>
-                        {% for message in queue.slice(queue.count - limit - start, limit) %}
+                        {% for message in queue.slice(start, limit) %}
                             <tr>
                                 <td>{{ message.timestamp|date }}</td>
                                 <td>{{ message.name }}</td>
