@@ -34,7 +34,7 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
         });
 
         $app['raekke.queue_factory'] = $app->share(function ($app) {
-            return new QueueFactory($app['raekke.connection'], $app['raekke.serializer']);
+            return new QueueFactory\QueueFactory($app['raekke.connection'], $app['raekke.serializer']);
         });
 
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
