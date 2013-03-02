@@ -7,12 +7,11 @@
         "psr-0" : { "" : "src/" }
     },
 
+    "minimum-stability" : "dev",
+
     "require" : {
-        "henrikbjorn/flint"       : "~1.0",
-        "silex/silex"             : "dev-master",
-        "henrikbjorn/raekke"      : "dev-master",
-        "predis/service-provider" : "dev-master",
-        "symfony/twig-bridge"     : "dev-master",
-        "jms/serializer"          : "dev-master"
+        "henrikbjorn/flint"                   : "~1.0",
+        "silex/silex"                         : "dev-master",
+        "henrikbjorn/raekke-service-provider" : "dev-master"
     }
 }
