@@ -10,12 +10,8 @@ $app->inject(array(
     'twig.options' => array(
         'cache' => $rootDir . '/cache/twig',
     ),
-    'predis.clients' => array(
-        'raekke' => array(
-            'parameters' => 'tcp://localhost',
-            'options' => array('prefix' => 'raekke:'),
-        ),
-    ),
+    'predis.parameters' => 'tcp://localhost',
+    'predis.options' => array('prefix' => 'raekke:'),
 ));
 
 $app->run();
