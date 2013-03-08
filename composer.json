@@ -7,11 +7,12 @@
         "psr-0" : { "" : "src/" }
     },
 
-    "minimum-stability" : "dev",
-
     "require" : {
+        "php"                                 : ">=5.3.3",
+        "silex/silex"                         : "1.0.*@dev",
         "henrikbjorn/flint"                   : "~1.0",
-        "silex/silex"                         : "dev-master",
-        "henrikbjorn/raekke-service-provider" : "dev-master"
+        "henrikbjorn/raekke"                  : "0.1.*@dev",
+        "henrikbjorn/raekke-service-provider" : "dev-master",
+        "jms/serializer"                      : "0.12.*@dev"
     }
 }
