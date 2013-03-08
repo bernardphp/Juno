@@ -11,8 +11,8 @@
         "php"                                 : ">=5.3.3",
         "silex/silex"                         : "1.0.*@dev",
         "henrikbjorn/flint"                   : "~1.0",
-        "henrikbjorn/raekke"                  : "0.1.*@dev",
-        "henrikbjorn/raekke-service-provider" : "dev-master",
+        "henrikbjorn/raekke"                  : "~0.1",
+        "henrikbjorn/raekke-service-provider" : "~0.1",
         "jms/serializer"                      : "0.12.*@dev"
     }
 }
