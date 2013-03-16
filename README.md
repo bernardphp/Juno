@@ -1,7 +1,7 @@
 Juno
 ====
 
-Juno provides a web interface for monitoring [Raekke](http://github.com/henrikbjorn/Raekke) and its connections..
+Juno provides a web interface for monitoring [Bernard](http://github.com/henrikbjorn/Bernard) and its connections..
 Juno is built ontop of Flint but can be used standalone by including the service provider and routing into your own
 application.
 

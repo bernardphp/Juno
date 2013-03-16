@@ -8,11 +8,11 @@
     },
 
     "require" : {
-        "php"                                 : ">=5.3.3",
-        "silex/silex"                         : "1.0.*@dev",
-        "henrikbjorn/flint"                   : "~1.0",
-        "henrikbjorn/raekke"                  : "~0.1",
-        "henrikbjorn/raekke-service-provider" : "~0.1",
-        "jms/serializer"                      : "0.12.*@dev"
+        "php"                                  : ">=5.3.3",
+        "silex/silex"                          : "1.0.*@dev",
+        "henrikbjorn/flint"                    : "~1.0",
+        "henrikbjorn/bernard"                  : "~0.1",
+        "henrikbjorn/bernard-service-provider" : "~0.1",
+        "jms/serializer"                       : "0.12.*@dev"
     }
 }

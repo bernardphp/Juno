@@ -12,7 +12,7 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        $queues  = $this->app['raekke.queue_factory'];
+        $queues  = $this->app['bernard.queue_factory'];
         $failed  = $queues->create('failed')->count();
         $pending = -$failed + array_reduce($queues->all(), function ($v, $queue) {
             return $v + $queue->count();
@@ -32,7 +32,7 @@ class InfoController extends \Flint\Controller\Controller
     public function connectionAction()
     {
         return $this->app['twig']->render('@Juno/Info/connection.html.twig', array(
-            'info' => $this->app['raekke.connection']->info(),
+            'info' => $this->app['bernard.connection']->info(),
         ));
     }
 }

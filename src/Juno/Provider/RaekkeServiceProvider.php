@@ -3,15 +3,15 @@
 namespace Juno\Provider;
 
 use Juno\Twig\CodeExtension;
-use Raekke\Connection;
-use Raekke\QueueFactory;
-use Raekke\Serializer;
+use Bernard\Connection;
+use Bernard\QueueFactory;
+use Bernard\Serializer;
 use Silex\Application;
 
 /**
  * @package Juno
  */
-class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
+class BernardServiceProvider implements \Silex\ServiceProviderInterface
 {
     /**
      * {@inheritDoc}
@@ -19,22 +19,22 @@ class RaekkeServiceProvider implements \Silex\ServiceProviderInterface
     public function register(Application $app)
     {
         $app['jms_serializer.builder'] = $app->share($app->extend('jms_serializer.builder', function ($builder) {
-            $r = new \ReflectionClass('Raekke\Connection');
-            $builder->addMetadataDir(dirname($r->getFilename()) . '/Resources/serializer', 'Raekke');
+            $r = new \ReflectionClass('Bernard\Connection');
+            $builder->addMetadataDir(dirname($r->getFilename()) . '/Resources/serializer', 'Bernard');
 
             return $builder;
         }));
 
-        $app['raekke.serializer'] = $app->share(function ($app) {
+        $app['bernard.serializer'] = $app->share(function ($app) {
             return new Serializer\Serializer($app['jms_serializer']);
         });
 
-        $app['raekke.connection'] = $app->share(function ($app) {
-            return new Connection($app['predis']['raekke']);
+        $app['bernard.connection'] = $app->share(function ($app) {
+            return new Connection($app['predis']['bernard']);
         });
 
-        $app['raekke.queue_factory'] = $app->share(function ($app) {
-            return new QueueFactory\QueueFactory($app['raekke.connection'], $app['raekke.serializer']);
+        $app['bernard.queue_factory'] = $app->share(function ($app) {
+            return new QueueFactory\QueueFactory($app['bernard.connection'], $app['bernard.serializer']);
         });
 
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
