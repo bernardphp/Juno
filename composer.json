@@ -1,6 +1,6 @@
 {
     "name" : "henrikbjorn/juno",
-    "description" : "Silex application for monitoring Raekke",
+    "description" : "Silex application for monitoring Bernard",
     "license" : "MIT",
 
     "autoload" : {
