@@ -11,7 +11,7 @@ $app->inject(array(
         'cache' => $rootDir . '/cache/twig',
     ),
     'predis.parameters' => 'tcp://localhost',
-    'predis.options' => array('prefix' => 'Bernard:'),
+    'predis.options' => array('prefix' => 'bernard:'),
 ));
 
 $app->run();
