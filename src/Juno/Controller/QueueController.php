@@ -44,6 +44,6 @@ class QueueController extends \Flint\Controller\Controller
     {
         $this->app['bernard.queue_factory']->remove($queue);
 
-        return $this->redirect($this->app['router']->generate('juno_queue_index'));
+        return $this->redirect($this->app['router']->generate('juno_queue'));
     }
 }
