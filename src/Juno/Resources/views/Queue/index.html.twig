@@ -22,18 +22,16 @@
                     </thead>
 
                     <tbody>
-                        {% for queue in queues.all if queue.name != 'failed'  %}
+                        {% for key, queue in queues.all if key != 'failed'  %}
                         <tr>
-                            <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
+                            <td><a href="{{ app.router.generate('juno_queue_show', { 'name' : key }) }}">{{ key }}</a></td>
                             <td class="text-right">{{ queue.count }}</td>
                         </tr>
                         {% endfor %}
 
                         <tr class="failed">
-                            {% set queue = queues.create('failed') %}
-
-                            <td><a href="{{ app.router.generate('juno_queue_show', { 'queue' : queue.name }) }}">{{ queue.name }}</a></td>
-                            <td class="text-right">{{ queue.count }}</td>
+                            <td><a href="{{ app.router.generate('juno_queue_show', { 'name' : 'failed' }) }}">failed</a></td>
+                            <td class="text-right">{{ queues.create('failed').count }}</td>
                         </tr>
                     </tbody>
                 </table>

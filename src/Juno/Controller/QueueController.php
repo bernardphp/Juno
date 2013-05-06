@@ -15,35 +15,35 @@ class QueueController extends \Flint\Controller\Controller
     public function indexAction()
     {
         return $this->render('@Juno/Queue/index.html.twig', array(
-            'queues' => $this->app['bernard.queue_factory'],
+            'queues' => $this->pimple['bernard.queue_factory'],
         ));
     }
 
     /**
-     * @param string $queue
+     * @param string $name
      * @return string
      */
-    public function showAction(Request $request, $queue)
+    public function showAction(Request $request, $name)
     {
-        $queue = $this->app['bernard.queue_factory']->create($queue);
+        $queue = $this->pimple['bernard.queue_factory']->create($name);
 
         return $this->render('@Juno/Queue/show.html.twig', array(
             'queue' => $queue,
+            'name'  => $name,
             'count' => $queue->count(),
-            'failed' => $queue->getName() === 'failed',
             'start' => $request->query->get('start', 0),
             'limit' => $request->query->get('limit', 20),
         ));
     }
 
     /**
-     * @param string $queue
+     * @param string $name
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function deleteAction($queue)
+    public function deleteAction($name)
     {
-        $this->app['bernard.queue_factory']->remove($queue);
+        $this->pimple['bernard.queue_factory']->remove($queue);
 
-        return $this->redirect($this->app['router']->generate('juno_queue'));
+        return $this->redirect($this->pimple['router']->generate('juno_queue'));
     }
 }

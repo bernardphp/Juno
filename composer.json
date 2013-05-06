@@ -9,10 +9,7 @@
 
     "require" : {
         "php"                                  : ">=5.3.3",
-        "silex/silex"                          : "1.0.*@dev",
-        "henrikbjorn/flint"                    : "~1.0",
-        "henrikbjorn/bernard"                  : "~0.1",
-        "henrikbjorn/bernard-service-provider" : "~0.1",
-        "jms/serializer"                       : "0.12.*@dev"
+        "henrikbjorn/flint"                    : "~1.2",
+        "henrikbjorn/bernard-service-provider" : "~0.2.1"
     }
 }

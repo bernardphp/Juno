@@ -1,21 +1,22 @@
 {% extends '@Juno/layout.html.twig' %}
 
+{% set failed = name == 'failed' %}
 {% block tab failed ? 'Failed' : 'Queues' %}
-{% block title failed ? "Failed" : "\"#{queue.name}\"" %}
+{% block title failed ? "Failed" : "\"#{name}\"" %}
 
 {% block body %}
     <section id="queue">
         <header>
             <div class="pull-right">
                 {% if not failed %}
-                    <form action="{{ app.router.generate('juno_queue_delete', { 'queue' : queue.name }) }}" method="post">
+                    <form action="{{ app.router.generate('juno_queue_delete', { 'name' : name }) }}" method="post">
                         <input type="hidden" name="_method" value="DELETE" />
                         <button class="btn btn-danger" type="submit" onclick="return confirm('Are you absolutely sure? This cannot be undone.');">Remove Queue</button>
                     </form>
                 {% endif %}
             </div>
 
-            <h2>{{ failed ? "Failed Jobs" : "Pending Jobs on \"#{queue.name}\"" }}</h2>
+            <h2>{{ failed ? "Failed Jobs" : "Pending Jobs on \"#{name}\"" }}</h2>
         </header>
 
         <div class="row-fluid">
@@ -34,7 +35,7 @@
                     </thead>
 
                     <tbody>
-                        {% for message in queue.slice(start, limit) %}
+                        {% for message in queue.peek(start, limit) %}
                             <tr>
                                 <td>{{ message.timestamp|date }}</td>
                                 <td>{{ message.name }}</td>

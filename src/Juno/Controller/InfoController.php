@@ -12,13 +12,13 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        $queues  = $this->app['bernard.queue_factory'];
+        $queues  = $this->pimple['bernard.queue_factory'];
         $failed  = $queues->create('failed')->count();
         $pending = -$failed + array_reduce($queues->all(), function ($v, $queue) {
             return $v + $queue->count();
         });
 
-        return $this->app['twig']->render('@Juno/Info/index.html.twig', array(
+        return $this->pimple['twig']->render('@Juno/Info/index.html.twig', array(
             'pending'   => $pending,
             'queues'    => $queues->count(),
             'failed'    => $failed,
@@ -31,8 +31,8 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function connectionAction()
     {
-        return $this->app['twig']->render('@Juno/Info/connection.html.twig', array(
-            'info' => $this->app['bernard.connection']->info(),
+        return $this->pimple['twig']->render('@Juno/Info/connection.html.twig', array(
+            'info' => $this->pimple['bernard.connection']->info(),
         ));
     }
 }

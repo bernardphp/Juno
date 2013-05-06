@@ -16,8 +16,8 @@ class ExceptionController extends \Flint\Controller\ExceptionController
     {
         // Apparently the request given here and the one in app.request are not
         // the same.
-        $this->app['request']->query->remove('_partial');
-        $this->app['request']->setRequestFormat('html');
+        $this->pimple['request']->query->remove('_partial');
+        $this->pimple['request']->setRequestFormat('html');
 
         // And for luck and fortune we set it on the given request aswell
         $request->query->remove('_partial');
