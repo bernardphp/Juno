@@ -7,10 +7,6 @@
         "psr-0" : { "" : "src/" }
     },
 
-    "replace" : {
-        "jms/serializer" : "*"
-    },
-
     "require" : {
         "php"                                  : ">=5.3.3",
         "henrikbjorn/flint"                    : "~1.2",
