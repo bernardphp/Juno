@@ -11,10 +11,6 @@
 
 namespace Juno\Twig;
 
-if (!defined('ENT_SUBSTITUTE')) {
-    define('ENT_SUBSTITUTE', 8);
-}
-
 /**
  * Twig extension relate to PHP code and used by the profiler and the default exception templates.
  *
