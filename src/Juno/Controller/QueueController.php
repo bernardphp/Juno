@@ -42,7 +42,7 @@ class QueueController extends \Flint\Controller\Controller
      */
     public function deleteAction($name)
     {
-        $this->pimple['bernard.queue_factory']->remove($queue);
+        $this->pimple['bernard.queue_factory']->remove($name);
 
         return $this->redirect($this->pimple['router']->generate('juno_queue'));
     }

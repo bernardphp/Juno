@@ -11,16 +11,12 @@
         <default key="_controller">Juno\Controller\QueueController::indexAction</default>
     </route>
 
-    <route id="juno_queue_show" pattern="/queue/{name}">
+    <route id="juno_queue_show" methods="GET" pattern="/queue/{name}">
         <default key="_controller">Juno\Controller\QueueController::showAction</default>
-
-        <requirement key="_method">GET</requirement>
     </route>
 
-    <route id="juno_queue_delete" pattern="/queue/{name}">
+    <route id="juno_queue_delete" methods="DELETE" pattern="/queue/{name}">
         <default key="_controller">Juno\Controller\QueueController::deleteAction</default>
-
-        <requirement key="_method">DELETE</requirement>
     </route>
 
     <route id="juno_failed" pattern="/queue/failed" />

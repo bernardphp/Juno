@@ -1,6 +1,11 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+
 require __DIR__ . '/../vendor/autoload.php';
+
+// allow _method
+Request::enableHttpMethodParameterOverride();
 
 $app = new Juno\Application($rootDir = __DIR__ . '/..', false);
 $app->inject(array(
