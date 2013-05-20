@@ -10,8 +10,7 @@
     "require" : {
         "php"                                  : ">=5.3.3",
         "henrikbjorn/flint"                    : "~1.2",
-        "henrikbjorn/bernard-service-provider" : "~0.2",
-        "henrikbjorn/bernard"                  : "~0.3",
+        "henrikbjorn/bernard-service-provider" : "~0.3",
         "symfony/serializer"                   : "~2.2"
     }
 }
