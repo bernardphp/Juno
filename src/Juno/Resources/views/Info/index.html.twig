@@ -6,7 +6,7 @@
     <section id="bernard">
         <header>
             <div class="pull-right">
-                <a class="btn btn-mini btn-primary" href="{{ app.router.generate('juno_info_connection') }}">Connection</a>
+                <a class="btn btn-mini btn-primary" href="{{ app.router.generate('juno_info_driver') }}">Driver</a>
             </div>
 
             <h2>Bernard</h2>
@@ -17,6 +17,10 @@
 
             <table class="table table-bordered table-hover">
                 <tbody>
+                    <tr>
+                        <th width="50%">Driver</th>
+                        <td>{{ app['bernard.driver']|title }}</td>
+                    </tr>
                     <tr>
                         <th width="50%">Messages</th>
                         <td>{{ pending }}</td>

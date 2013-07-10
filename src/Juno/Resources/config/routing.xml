@@ -29,7 +29,7 @@
         <default key="_controller">Juno\Controller\InfoController::indexAction</default>
     </route>
 
-    <route id="juno_info_connection" pattern="/info/connection">
-        <default key="_controller">Juno\Controller\InfoController::connectionAction</default>
+    <route id="juno_info_driver" pattern="/info/driver">
+        <default key="_controller">Juno\Controller\InfoController::driverAction</default>
     </route>
 </routes>

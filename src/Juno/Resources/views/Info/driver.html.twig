@@ -3,19 +3,19 @@
 {% block tab 'Info' %}
 
 {% block body %}
-    <section id="Connection">
+    <section id="Driver">
         <header>
             <div class="pull-right">
                 <a class="btn btn-mini btn-primary" href="{{ app.router.generate('juno_info') }}">Bernard</a>
             </div>
 
-            <h2>Connection</h2>
+            <h2>Driver</h2>
         </header>
 
         <div class="row-fluid">
             {% if info %}
-                <p>The information below gives a good overview of the current connection. The information displayed is specific to the
-                connection type used. In case you forgot you are using "<strong>Redis</strong>".</p>
+                <p>The information below gives a good overview of the current driver. The information displayed is specific to the
+                driver type used. In case you forgot you are using "<strong>{{ app['bernard.driver']|title }}</strong>".</p>
 
                 <table class="table table-bordered table-hover">
                     <tbody>

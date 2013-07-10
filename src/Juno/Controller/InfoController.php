@@ -30,9 +30,9 @@ class InfoController extends \Flint\Controller\Controller
     /**
      * @return string
      */
-    public function connectionAction()
+    public function driverAction()
     {
-        return $this->pimple['twig']->render('@Juno/Info/connection.html.twig', array(
+        return $this->pimple['twig']->render('@Juno/Info/driver.html.twig', array(
             'info' => $this->pimple['bernard.driver_real']->info(),
         ));
     }
