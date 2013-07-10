@@ -15,7 +15,7 @@
         <default key="_controller">Juno\Controller\QueueController::showAction</default>
     </route>
 
-    <route id="juno_queue_delete" methods="DELETE" pattern="/queue/{name}">
+    <route id="juno_queue_delete" methods="DELETE POST" pattern="/queue/{name}">
         <default key="_controller">Juno\Controller\QueueController::deleteAction</default>
     </route>
 
