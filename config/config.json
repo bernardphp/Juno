@@ -7,6 +7,9 @@
         "cache" : "%root_dir%/cache/twig"
     },
 
+    "bernard.driver" : "doctrine",
+    "bernard.serializer" : "symfony",
+
     "dbs.options" : {
         "bernard" : {
             "driver" : "pdo_sqlite",
