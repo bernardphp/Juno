@@ -3,6 +3,6 @@
 {% block tab 'Overview' %}
 
 {% block body %}
-    {{ render('/queue?_partial=1') }}
-    {{ render('/consumer?_partial=1') }}
+    {{ render(app.router.generate('juno_queue', { _partial : 1 })) }}
+    {{ render(app.router.generate('juno_consumer', { _partial : 1 })) }}
 {% endblock %}
