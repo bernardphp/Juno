@@ -20,16 +20,6 @@ class JunoServiceProvider implements \Silex\ServiceProviderInterface
         $app['exception_controller'] = 'Juno\\Controller\\ExceptionController::showAction';
         $app['routing.resource'] = __DIR__ . '/../Resources/config/routing.xml';
 
-        $app['bernard.serializer'] = $app->share(function ($app) {
-            return new SymfonySerializer($app['serializer']);
-        });
-
-        $app['serializer.normalizers'] = $app->share($app->extend('serializer.normalizers', function ($normalizers) {
-            array_unshift($normalizers, new EnvelopeNormalizer);
-
-            return $normalizers;
-        }));
-
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
             $twig->addExtension(new CodeExtension);
 

@@ -1,0 +1,16 @@
+{
+    "routing.options" : {
+        "cache_dir" : "%root_dir%/cache/routing"
+    },
+
+    "twig.options" : {
+        "cache" : "%root_dir%/cache/twig"
+    },
+
+    "dbs.options" : {
+        "bernard" : {
+            "driver" : "pdo_sqlite",
+            "path" : "%root_dir%/cache/juno.sqlite"
+        }
+    }
+}

@@ -1,22 +1,23 @@
 <?php
 
-use Symfony\Component\HttpFoundation\Request;
+use Silex\Provider\DoctrineServiceProvider;
 
-require __DIR__ . '/../vendor/autoload.php';
+$app = require __DIR__ . '/../src/app.php';
 
-// allow _method
-Request::enableHttpMethodParameterOverride();
+// This test uses Doctrine dbal driver as it is the default.
+$app->register(new DoctrineServiceProvider);
 
-$app = new Juno\Application($rootDir = __DIR__ . '/..', false);
-$app->inject(array(
-    'routing.options' => array(
-        'cache_dir' => $rootDir . '/cache/routing',
-    ),
-    'twig.options' => array(
-        'cache' => $rootDir . '/cache/twig',
-    ),
-    'predis.parameters' => 'tcp://localhost',
-    'predis.options' => array('prefix' => 'bernard:'),
-));
+// Some tests config values
+$app->configure($app['root_dir'] . '/config/config.json');
+
+// Insert some test data if nothing exists yet.
+$db = $app['dbs']['bernard'];
+
+if (!$db->getSchemaManager()->tablesExist('bernard_messages')) {
+    $queries = explode("\n", file_get_contents($app['root_dir'] . '/config/bernard_messages.sql'));
+    $queries = array_filter($queries);
+
+    array_map(array($db, 'executeQuery'), $queries);
+}
 
 $app->run();
