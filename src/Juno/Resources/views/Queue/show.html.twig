@@ -35,13 +35,13 @@
                     </thead>
 
                     <tbody>
-                        {% for message in queue.peek(start, limit) %}
+                        {% for envelope in queue.peek(start, limit) %}
                             <tr>
-                                <td>{{ message.timestamp|date }}</td>
-                                <td>{{ message.name }}</td>
-                                <td class="hidden-phone">{{ message.retries }}</td>
-                                <td class="hidden-phone">{{ message.class|abbr_class }}</td>
-                                <td class="hidden-phone hidden-tablet">{{ message.message|format_args|default('No arguments') }}</td>
+                                <td>{{ envelope.timestamp|date }}</td>
+                                <td>{{ envelope.name }}</td>
+                                <td class="hidden-phone">{{ envelope.retries }}</td>
+                                <td class="hidden-phone">{{ envelope.class|abbr_class }}</td>
+                                <td class="hidden-phone hidden-tablet">{{ envelope.message|format_args|default('No arguments') }}</td>
                             </tr>
                         {% else %}
                             <tr>

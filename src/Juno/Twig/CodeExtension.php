@@ -25,7 +25,7 @@ class CodeExtension extends \Twig_Extension
     {
         return array(
             'abbr_class'  => new \Twig_Filter_Method($this, 'abbrClass', array('is_safe' => array('html'))),
-            'format_args' => new \Twig_Filter_Method($this, 'formatArgs', array('is_safe' => array('html'))),
+            'format_args' => new \Twig_Filter_Method($this, 'formatArgsAsText', array('is_safe' => array('html'))),
         );
     }
 
