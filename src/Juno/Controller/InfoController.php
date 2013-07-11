@@ -12,16 +12,16 @@ class InfoController extends \Flint\Controller\Controller
      */
     public function indexAction()
     {
-        $queues  = $this->pimple['bernard.queue_factory'];
-        $failed  = $queues->create('failed')->count();
+        $queues  = $this->pimple['bernard.queue_factory']->all();
+        $failed  = isset($queues['failed']) ? $queues->create('failed')->count() : 0;
 
-        $pending = -$failed + array_reduce($queues->all(), function ($v, $queue) {
+        $pending = -$failed + array_reduce($queues, function ($v, $queue) {
             return $v + $queue->count();
         });
 
         return $this->pimple['twig']->render('@Juno/Info/index.html.twig', array(
             'pending'   => $pending,
-            'queues'    => $queues->count(),
+            'queues'    => count($queues),
             'failed'    => $failed,
             'consumers' => 0,
         ));
