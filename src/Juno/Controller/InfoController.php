@@ -13,7 +13,7 @@ class InfoController extends \Flint\Controller\Controller
     public function indexAction()
     {
         $queues  = $this->pimple['bernard.queue_factory']->all();
-        $failed  = isset($queues['failed']) ? $queues->create('failed')->count() : 0;
+        $failed  = isset($queues['failed']) ? $queues['failed']->count() : 0;
 
         $pending = -$failed + array_reduce($queues, function ($v, $queue) {
             return $v + $queue->count();
