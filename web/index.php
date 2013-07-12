@@ -14,10 +14,21 @@ $app->configure($app['root_dir'] . '/config/config.json');
 $db = $app['dbs']['bernard'];
 
 if (!$db->getSchemaManager()->tablesExist('bernard_messages')) {
-    $queries = explode("\n", file_get_contents($app['root_dir'] . '/config/bernard_messages.sql'));
-    $queries = array_filter($queries);
+    Bernard\Doctrine\MessagesSchema::create($schema = new Doctrine\DBAL\Schema\Schema);
 
-    array_map(array($db, 'executeQuery'), $queries);
+    array_map(array($db, 'executeQuery'), $schema->toSql($db->getDatabasePlatform()));
+
+    for ($i = 0;$i < rand(1337, 1500);$i++) {
+        $app['bernard.producer']->produce(new Bernard\Message\DefaultMessage('ImportUser', array(
+            'file' => '/path/to/some/file.csv',
+        )));
+    }
+
+    for ($i = 0;$i < 133;$i++) {
+        $app['bernard.queue_factory']->create('failed')->enqueue(new Bernard\Message\Envelope(new Bernard\Message\DefaultMessage('ImportUser', array(
+            'file' => '/path/to/some/file.csv',
+        ))));
+    }
 }
 
 $app->run();

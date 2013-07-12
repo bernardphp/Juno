@@ -29,10 +29,16 @@
                             </tr>
                         {% endfor %}
 
-                        {% if queues.all.failed|default(false) %}
+                        {% if queues.all.failed is defined %}
                             <tr class="failed">
                                 <td><a href="{{ app.router.generate('juno_queue_show', { 'name' : 'failed' }) }}">failed</a></td>
                                 <td class="text-right">{{ queues.create('failed').count }}</td>
+                            </tr>
+                        {% endif %}
+
+                        {% if queues is empty %}
+                            <tr>
+                                <td colspan="2">No Queues found.</td>
                             </tr>
                         {% endif %}
                     </tbody>
