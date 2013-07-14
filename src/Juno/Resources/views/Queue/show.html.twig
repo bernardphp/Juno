@@ -21,7 +21,7 @@
 
         <div class="row-fluid">
             <div class="span12">
-                <p>Showing {{ start }} to {{ start + limit }} of <strong>{{ count }}</strong> messages.</p>
+                {#<p>Showing {{ start }} to {{ start + limit }} of <strong>{{ count }}</strong> messages.</p>#}
 
                 <table class="table table-hover table-striped">
                     <thead>
@@ -35,7 +35,7 @@
                     </thead>
 
                     <tbody>
-                        {% for envelope in queue.peek(start, limit) %}
+                        {% for envelope in pager %}
                             <tr>
                                 <td>{{ envelope.timestamp|date }}</td>
                                 <td>{{ envelope.name }}</td>
@@ -51,7 +51,7 @@
                     </tbody>
                 </table>
 
-                {{ include('@Juno/_pagination.html.twig', { 'start' : start, 'limit' : limit, 'count' : count }) }}
+                {{ include('@Juno/_pagination.html.twig', { pager : pager }) }}
             </div>
         </div>
     </section>

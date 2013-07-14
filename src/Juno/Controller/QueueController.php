@@ -2,6 +2,8 @@
 
 namespace Juno\Controller;
 
+use Juno\Pagerfanta\QueueAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -27,13 +29,11 @@ class QueueController extends \Flint\Controller\Controller
     {
         $queue = $this->pimple['bernard.queue_factory']->create($name);
 
-        return $this->render('@Juno/Queue/show.html.twig', array(
-            'queue' => $queue,
-            'name'  => $name,
-            'count' => $queue->count(),
-            'start' => $request->query->get('start', 0),
-            'limit' => $request->query->get('limit', 20),
-        ));
+        $pager = new Pagerfanta(new QueueAdapter($queue));
+        $pager->setMaxPerPage(20);
+        $pager->setCurrentPage($request->query->get('page', 1));
+
+        return $this->render('@Juno/Queue/show.html.twig', compact('pager', 'name'));
     }
 
     /**

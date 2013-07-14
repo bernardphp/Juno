@@ -1,23 +1,22 @@
 {% set route = app.request.attributes.get('_route') %}
 {% set route_params = app.request.attributes.get('_route_params') %}
 
-{% if start - limit >= 0 or start + limit <= count %}
+{% if pager.haveToPaginate %}
     <div class="pagination pagination-centered">
         <ul>
-            {% if start - limit >= 0 %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'start' : 0 })) }}">&laquo;&laquo;</a></li>
+            {% if pager.hasPreviousPage %}
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : 1 })) }}">&laquo;&laquo;</a></li>
             {% endif %}
 
-            {% if start - limit >= 0 %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'start' : start - limit })) }}">&laquo; less</a></li>
+            {% if pager.currentPage > 2 %}
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.previousPage })) }}">&laquo; less</a></li>
             {% endif %}
 
-            {% if (start + limit) < count %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'start' : start + limit })) }}">more &raquo;</a></li>
+            {% if pager.hasNextPage %}
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.nextPage })) }}">more &raquo;</a></li>
 
-                {% set page = count % limit == 0 ? (count - limit) : count - (count % limit) %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'start' : page })) }}">&raquo;&raquo;</a></li>
-            {% endif %}
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.nbPages })) }}">&raquo;&raquo;</a></li>
+            {% endif%}
         </ul>
     </div>
 {% endif %}
