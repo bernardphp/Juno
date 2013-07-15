@@ -8,10 +8,10 @@
     },
 
     "require" : {
-        "php"                   : ">=5.3.3",
-        "flint/flint"           : "~1.4",
-        "bernard/silex"         : "~0.4@dev",
-        "pagerfanta/pagerfanta" : "~1.0"
+        "php"                        : ">=5.3.3",
+        "flint/flint"                : "~1.4",
+        "bernard/silex"              : "~0.4@dev",
+        "alexandresalome/pagination" : "dev-master"
     },
 
     "require-dev" : {

@@ -1,21 +1,24 @@
 {% set route = app.request.attributes.get('_route') %}
 {% set route_params = app.request.attributes.get('_route_params') %}
 
-{% if pager.haveToPaginate %}
+{% if pager.pageCount > 1 %}
     <div class="pagination pagination-centered">
         <ul>
-            {% if pager.hasPreviousPage %}
+            {% if not pager.firstPage %}
                 <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : 1 })) }}">&laquo;&laquo;</a></li>
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.page - 1 })) }}">&laquo; less</a></li>
             {% endif %}
 
-            {% if pager.currentPage > 1 %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.previousPage })) }}">&laquo; less</a></li>
-            {% endif %}
+            {% for page in pager.pageRange %}
+                <li class="{{ pager.page == page ? 'active' : '' }}">
+                    <a href="{{ app.router.generate(route, route_params|merge({ 'page' : page })) }}">{{ page }}</a>
+                </li>
+            {% endfor %}
 
-            {% if pager.hasNextPage %}
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.nextPage })) }}">more &raquo;</a></li>
+            {% if not pager.isLastPage %}
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.page + 1 })) }}">more &raquo;</a></li>
 
-                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.nbPages })) }}">&raquo;&raquo;</a></li>
+                <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : pager.pageCount })) }}">&raquo;&raquo;</a></li>
             {% endif%}
         </ul>
     </div>

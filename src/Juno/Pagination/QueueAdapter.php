@@ -1,13 +1,13 @@
 <?php
 
-namespace Juno\Pagerfanta;
+namespace Juno\Pagination;
 
 use Bernard\Queue;
 
 /**
  * @package Juno
  */
-class QueueAdapter implements \Pagerfanta\Adapter\AdapterInterface
+class QueueAdapter implements \Alex\Pagination\Adapter\AdapterInterface
 {
     protected $queue;
 
@@ -22,7 +22,7 @@ class QueueAdapter implements \Pagerfanta\Adapter\AdapterInterface
     /**
      * {@inheritDoc}
      */
-    public function getNbResults()
+    public function count()
     {
         return $this->queue->count();
     }
@@ -30,8 +30,8 @@ class QueueAdapter implements \Pagerfanta\Adapter\AdapterInterface
     /**
      * {@inheritDoc}
      */
-    public function getSlice($length, $offset)
+    public function get($offset, $limit)
     {
-        return $this->queue->peek($offset, $length);
+        return $this->queue->peek($offset, $limit);
     }
 }
