@@ -19,7 +19,11 @@
                 <tbody>
                     <tr>
                         <th width="50%">Driver</th>
-                        <td>{{ app['bernard.driver']|title }}</td>
+                        <td>{{ config.driver|title }}</td>
+                    </tr>
+                    <tr>
+                        <th width="50%">Serializer</th>
+                        <td>{{ config.serializer|title }}</td>
                     </tr>
                     <tr>
                         <th width="50%">Messages</th>
@@ -32,10 +36,6 @@
                     <tr>
                         <th width="50%">Queues</th>
                         <td>{{ queues }}</td>
-                    </tr>
-                    <tr>
-                        <th width="50%">Consumers</th>
-                        <td>{{ consumers }}</td>
                     </tr>
                 </tbody>
             </table>

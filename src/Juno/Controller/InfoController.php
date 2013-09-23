@@ -23,7 +23,7 @@ class InfoController extends \Flint\Controller\Controller
             'pending'   => $pending,
             'queues'    => count($queues),
             'failed'    => $failed,
-            'consumers' => 0,
+            'config'    => $this->get('bernard.config'),
         ));
     }
 
@@ -33,7 +33,8 @@ class InfoController extends \Flint\Controller\Controller
     public function driverAction()
     {
         return $this->pimple['twig']->render('@Juno/Info/driver.html.twig', array(
-            'info' => $this->pimple['bernard.driver_real']->info(),
+            'info' => $this->get('bernard.driver')->info(),
+            'config' => $this->get('bernard.config'),
         ));
     }
 }
