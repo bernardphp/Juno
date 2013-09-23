@@ -10,7 +10,8 @@
     "require" : {
         "php"                        : ">=5.3.3",
         "flint/flint"                : "~1.4",
-        "bernard/silex"              : "~0.4@dev",
+        "bernard/silex"              : "dev-master",
+        "bernard/bernard"            : "~0.10.0",
         "alexandresalome/pagination" : "dev-master"
     },
 

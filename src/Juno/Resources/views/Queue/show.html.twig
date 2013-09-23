@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{ envelope.timestamp|date }}</td>
                                 <td>{{ envelope.name }}</td>
-                                <td class="hidden-phone">{{ envelope.retries }}</td>
+                                <td class="hidden-phone">{{ envelope.retries|default(0) }}</td>
                                 <td class="hidden-phone">{{ envelope.class|abbr_class }}</td>
                                 <td class="hidden-phone hidden-tablet">{{ envelope.message|format_args|default('No arguments') }}</td>
                             </tr>
