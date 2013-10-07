@@ -2,7 +2,6 @@
 
 namespace Juno\Controller;
 
-use Alex\Pagination\Pager;
 use Juno\Pagination\QueueAdapter;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -28,12 +27,15 @@ class QueueController extends \Flint\Controller\Controller
     public function showAction(Request $request, $name)
     {
         $queue = $this->pimple['bernard.queue_factory']->create($name);
+        $page  = $request->query->get('page', 1);
 
-        $pager = new Pager(new QueueAdapter($queue));
-        $pager->setPerPage(20);
-        $pager->setPage($request->query->get('page', 1));
-
-        return $this->render('@Juno/Queue/show.html.twig', compact('pager', 'name'));
+        return $this->render('@Juno/Queue/show.html.twig', array(
+            'envelopes' => $queue->peek($page - 1, 20),
+            'pages'     => ceil($queue->count() / 20),
+            'page'      => $page,
+            'queue'     => $queue,
+            'name'      => $name,
+        ));
     }
 
     /**

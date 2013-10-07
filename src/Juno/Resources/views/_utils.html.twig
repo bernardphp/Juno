@@ -1,0 +1,28 @@
+{% macro pagination(count, current, request) %}
+    {% set route = request.attributes.get('_route') %}
+    {% set route_params = request.attributes.get('_route_params') %}
+    {% set range = range((current - 5) < 1 ? 1 : current - 5, (current + 5) > count ? count : current + 5) %}
+
+    {% if count > 1 %}
+        <div class="pagination pagination-centered">
+            <ul>
+                {% if current != 1 %}
+                    <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : 1 })) }}">&laquo;&laquo;</a></li>
+                    <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : current - 1 })) }}">&laquo; less</a></li>
+                {% endif %}
+
+                {% for page in range %}
+                    <li class="{{ current == page ? 'active' : '' }}">
+                        <a href="{{ app.router.generate(route, route_params|merge({ 'page' : page })) }}">{{ page }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if current != count %}
+                    <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : current + 1 })) }}">more &raquo;</a></li>
+
+                    <li><a href="{{ app.router.generate(route, route_params|merge({ 'page' : count })) }}">&raquo;&raquo;</a></li>
+                {% endif%}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}

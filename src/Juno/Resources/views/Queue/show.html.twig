@@ -1,5 +1,7 @@
 {% extends '@Juno/layout.html.twig' %}
 
+{% import '@Juno/_utils.html.twig' as utils %}
+
 {% set failed = name == 'failed' %}
 {% block tab failed ? 'Failed' : 'Queues' %}
 {% block title failed ? "Failed" : "\"#{name}\"" %}
@@ -21,7 +23,7 @@
 
         <div class="row-fluid">
             <div class="span12">
-                <p>Showing {{ pager.page }} of <strong>{{ pager.pageCount }}</strong> pages.</p>
+                <p>Showing {{ page }} of <strong>{{ pages }}</strong> pages.</p>
 
                 <table class="table table-hover table-striped">
                     <thead>
@@ -35,7 +37,7 @@
                     </thead>
 
                     <tbody>
-                        {% for envelope in pager %}
+                        {% for envelope in envelopes %}
                             <tr>
                                 <td>{{ envelope.timestamp|date }}</td>
                                 <td>{{ envelope.name }}</td>
@@ -51,7 +53,7 @@
                     </tbody>
                 </table>
 
-                {{ include('@Juno/_pagination.html.twig', { pager : pager }) }}
+                {{ utils.pagination(pages, page, app.request) }}
             </div>
         </div>
     </section>
