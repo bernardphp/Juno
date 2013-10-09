@@ -1,7 +1,11 @@
 {
-    "name" : "henrikbjorn/juno",
-    "description" : "Silex application for monitoring Bernard",
+    "name" : "bernard/juno",
+    "description" : "Monitoring web interface for Bernard."
     "license" : "MIT",
+
+    "replace" : {
+        "henrikbjorn/juno" : "self.version"
+    },
 
     "autoload" : {
         "psr-0" : { "Juno\\" : "src/" }
