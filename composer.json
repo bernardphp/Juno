@@ -1,6 +1,6 @@
 {
     "name" : "bernard/juno",
-    "description" : "Monitoring web interface for Bernard."
+    "description" : "Monitoring web interface for Bernard.",
     "license" : "MIT",
 
     "replace" : {
