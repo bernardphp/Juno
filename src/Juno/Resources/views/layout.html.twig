@@ -30,10 +30,8 @@
 
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            {% for title, path in tabs %}
-                                <li{{ tab == title ? ' class="active"' : '' }}>
-                                    <a href="{{ app.router.generate(path) }}">{{ title }}</a>
-                                </li>
+                            {% for page in juno_navigation.all %}
+                                <li {{ page.isActive(app.request.get('_route')) ? ' class="active"' : '' }}><a href="{{ app.router.generate(page.route) }}">{{ page.name }}</a></li>
                             {% endfor %}
                         </ul>
 

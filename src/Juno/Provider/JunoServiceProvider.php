@@ -5,7 +5,9 @@ namespace Juno\Provider;
 use Bernard\Serializer\SymfonySerializer;
 use Bernard\Symfony\EnvelopeNormalizer;
 use Juno\Twig\CodeExtension;
+use Juno\Twig\JunoExtension;
 use Silex\Application;
+use Juno\Navigation;
 
 /**
  * @package Juno
@@ -22,6 +24,7 @@ class JunoServiceProvider implements \Silex\ServiceProviderInterface
 
         $app['twig'] = $app->share($app->extend('twig', function ($twig, $app) {
             $twig->addExtension(new CodeExtension);
+            $twig->addExtension(new JunoExtension($app['juno.navigation']));
 
             return $twig;
         }));
@@ -31,6 +34,10 @@ class JunoServiceProvider implements \Silex\ServiceProviderInterface
 
             return $loader;
         }));
+
+        $app['juno.navigation'] = $app->share(function () {
+            return new Navigation;
+        });
     }
 
     /**
