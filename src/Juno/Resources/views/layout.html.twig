@@ -9,8 +9,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
-        <link href="/juno/inspiritas/inspiritas.css" rel="stylesheet">
-        <link href="/juno/css/juno.css" rel="stylesheet">
+        <link href="{{app.request.baseUrl}}/juno/inspiritas/inspiritas.css" rel="stylesheet">
+        <link href="{{app.request.baseUrl}}/juno/css/juno.css" rel="stylesheet">
     </head>
 
     <body>
@@ -64,9 +64,9 @@
             </div>
         </div>
 
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="/juno/inspiritas/bootstrap/bootstrap-collapse.js"></script>
-        <script src="/juno/js/juno.js"></script>
+        <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="{{app.request.baseUrl}}{{app.request.baseUrl}}/juno/inspiritas/bootstrap/bootstrap-collapse.js"></script>
+        <script src="{{app.request.baseUrl}}/juno/js/juno.js"></script>
     </body>
 </html>
 {% endif %}
