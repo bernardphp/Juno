@@ -27,8 +27,9 @@ class Navigation
     }
 
     /**
-     * @param string $name
-     * @param array $routes
+     * @param string  $name
+     * @param array   $routes
+     * @param integer $priority
      */
     public function add($name, $routes = array(), $priority = 10)
     {

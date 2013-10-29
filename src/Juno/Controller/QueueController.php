@@ -2,7 +2,6 @@
 
 namespace Juno\Controller;
 
-use Juno\Pagination\QueueAdapter;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

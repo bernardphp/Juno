@@ -12,7 +12,7 @@ class Page
 
     /**
      * @param string $name
-     * @param array $routes
+     * @param array  $routes
      */
     public function __construct($name, array $routes)
     {
@@ -40,7 +40,7 @@ class Page
 
     /**
      * @param string $route
-     * @return boolean
+     * @return Boolean
      */
     public function isActive($route)
     {
