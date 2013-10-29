@@ -20,7 +20,8 @@ class QueueController extends \Flint\Controller\Controller
     }
 
     /**
-     * @param string $name
+     * @param Request $request
+     * @param string  $name
      * @return string
      */
     public function showAction(Request $request, $name)
