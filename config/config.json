@@ -1,4 +1,5 @@
 {
+    "@import": "%root_dir%/config/parameters.json",
     "routing.options" : {
         "cache_dir" : "%root_dir%/cache/routing"
     },
