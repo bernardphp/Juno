@@ -2,8 +2,6 @@
 
 namespace Juno\Provider;
 
-use Bernard\Serializer\SymfonySerializer;
-use Bernard\Symfony\EnvelopeNormalizer;
 use Juno\Twig\CodeExtension;
 use Juno\Twig\JunoExtension;
 use Silex\Application;

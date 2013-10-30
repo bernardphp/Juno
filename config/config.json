@@ -1,4 +1,5 @@
 {
+    "@import": "%root_dir%/config/parameters.json",
     "routing.options" : {
         "cache_dir" : "%root_dir%/cache/routing"
     },
@@ -9,8 +10,14 @@
 
     "dbs.options" : {
         "bernard" : {
-            "driver" : "pdo_sqlite",
-            "path" : "%root_dir%/cache/juno.sqlite"
-        }
+            "driver" : "%database_driver%",
+            //"path" : "%root_dir%/cache/juno.sqlite"
+            "dbname": "%database_name%",
+            "host": "%database_hostname%", // localhost
+            "user": "%database_username%", // root
+            "password": "%database_password%",
+            "charset": "database_charset",
+            "port": "%database_port"
+}
     }
 }

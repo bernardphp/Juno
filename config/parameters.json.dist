@@ -1,0 +1,9 @@
+{
+    "database_driver": "pdo_mysql",
+    "database_name": "yourAppName",
+    "database_hostname": "localhost",
+    "database_username": "root",
+    "database_password": "",
+    "database_charset": "utf8",
+    "database_port": "80"
+}
