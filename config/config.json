@@ -1,5 +1,4 @@
 {
-    "@import": "%root_dir%/config/parameters.json",
     "routing.options" : {
         "cache_dir" : "%root_dir%/cache/routing"
     },
@@ -10,13 +9,13 @@
 
     "dbs.options" : {
         "bernard" : {
-            "driver" : "%database_driver%",
-            "dbname": "%database_name%",
-            "host": "%database_hostname%",
-            "user": "%database_username%",
-            "password": "%database_password%",
-            "charset": "database_charset",
-            "port": "%database_port"
-}
+            "driver" : "pdo_mysql",
+            "dbname": "yourAppDatabaseName",
+            "host": "localhost",
+            "user": "root",
+            "password": "yourPasswordHere",
+            "charset": "utf8",
+            "port": "80"
+        }
     }
 }
