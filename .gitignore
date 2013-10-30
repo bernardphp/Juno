@@ -2,4 +2,4 @@ vendor
 composer.lock
 cache/*
 !cache/.gitkeep
-config/parameters.json
+config/config.json
