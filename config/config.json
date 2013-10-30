@@ -11,10 +11,9 @@
     "dbs.options" : {
         "bernard" : {
             "driver" : "%database_driver%",
-            //"path" : "%root_dir%/cache/juno.sqlite"
             "dbname": "%database_name%",
-            "host": "%database_hostname%", // localhost
-            "user": "%database_username%", // root
+            "host": "%database_hostname%",
+            "user": "%database_username%",
             "password": "%database_password%",
             "charset": "database_charset",
             "port": "%database_port"
