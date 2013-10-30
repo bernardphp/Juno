@@ -9,13 +9,8 @@
 
     "dbs.options" : {
         "bernard" : {
-            "driver" : "pdo_mysql",
-            "dbname": "yourAppDatabaseName",
-            "host": "localhost",
-            "user": "root",
-            "password": "yourPasswordHere",
-            "charset": "utf8",
-            "port": "80"
+            "driver" : "pdo_sqlite",
+            "path" : "%root_dir%/cache/juno.sqlite"
         }
     }
 }
