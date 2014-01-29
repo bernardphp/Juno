@@ -10,13 +10,11 @@ class JunoControllerProvider implements \Silex\ControllerProviderInterface
     {
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/queue', 'Juno\Controller\QueueController::indexAction');
-        $controllers->get('/queue/{queue}', 'Juno\Controller\QueueController::showAction');
-
-        $controllers->get('/consumer', 'Juno\Controller\ConsumerController::indexAction');
-
-        $controllers->get('/info', 'Juno\Controller\InfoController::indexAction');
-        $controllers->get('/info/driver', 'Juno\Controller\InfoController::driverAction');
+        $controllers->get('/queue.json', 'Juno\Controller\QueueController::indexAction');
+        $controllers->get('/queue/{queue}.json', 'Juno\Controller\QueueController::showAction');
+        $controllers->get('/consumer.json', 'Juno\Controller\ConsumerController::indexAction');
+        $controllers->get('/info.json', 'Juno\Controller\InfoController::indexAction');
+        $controllers->get('/info/driver.json', 'Juno\Controller\InfoController::driverAction');
 
         $controllers->get('/', 'Juno\Controller\DefaultController::indexAction');
         $controllers->get('/{url}', 'Juno\Controller\DefaultController::indexAction')

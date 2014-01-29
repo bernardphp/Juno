@@ -12,5 +12,9 @@
         "silex/silex" : "~1.0",
         "bernard/bernard" : "~0.12",
         "bernard/silex" : "dev-master"
+    },
+
+    "require-dev" : {
+        "symfony/browser-kit" : "~2.4"
     }
 }
