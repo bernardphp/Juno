@@ -1,0 +1,16 @@
+body{background:#f9f6f1}
+
+.navbar-default{margin-bottom:0;background:#00ba8b}
+.navbar-default .navbar-brand{color:#fff;font-weight:bold;font-size:22px}
+.navbar-default .navbar-brand:hover{color:#fff;}
+
+.navbar-static-top{border-bottom-width:0px}
+
+.navbar-juno{background:#fff;border-bottom:1px solid #d6d6d6}
+.navbar-juno .nav li{border-left:1px solid #d6d6d6;height:60px;min-width:90px;}
+.navbar-juno .nav li:last-child{border-right:1px solid #d6d6d6}
+.navbar-juno .nav li a{color:#b2afaa;text-align:center;padding:10px 20px 5px;}
+.navbar-juno .nav li a:hover{color:#888;background:none;}
+.navbar-juno .nav li.active a{color:#000;border-bottom:3px solid orange}
+
+.navbar-juno .glyphicon{display:block;font-size:20px;margin:0 auto 5px}
