@@ -6,7 +6,7 @@ use Silex\Application;
 
 class QueueController
 {
-    public function indexAction(Application $app, $_accept = '')
+    public function indexAction(Application $app, $_format = '')
     {
         return $app->json(array(
             'proxy-analysis'  => 20,
