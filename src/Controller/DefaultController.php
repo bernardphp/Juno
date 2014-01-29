@@ -57,7 +57,39 @@ __halt_compiler();
         </div>
 
         <div class="container">
-            <p>Hello</p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queues</h3>
+                </div>
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th width="1">Status</th>
+                            <th width="1">Messages</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>import</td>
+                            <td class="text-center"><span class="label label-success">OK</span></td>
+                            <td class="text-right">10</td>
+                        </tr>
+                        <tr>
+                            <td>project-samples</td>
+                            <td class="text-center"><span class="label label-success">OK</span></td>
+                            <td class="text-right">0</td>
+                        </tr>
+                        <tr class="failed">
+                            <td>failed</td>
+                            <td class="text-center"><span class="label label-warning">WARNING</span></td>
+                            <td class="text-right">265</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>

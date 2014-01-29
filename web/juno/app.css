@@ -14,3 +14,5 @@ body{background:#f9f6f1}
 .navbar-juno .nav li.active a{color:#000;border-bottom:3px solid orange}
 
 .navbar-juno .glyphicon{display:block;font-size:20px;margin:0 auto 5px}
+
+.table-striped .failed td{background:pink !important}
