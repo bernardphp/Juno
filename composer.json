@@ -1,0 +1,16 @@
+{
+    "name" : "bernard/juno",
+    "license" : "MIT",
+
+    "autoload" : {
+        "psr-4" : { "Juno\\" : "src" },
+        "files" : [ "src/functions.php" ]
+    },
+
+    "require" : {
+        "php" : ">=5.3.3",
+        "silex/silex" : "~1.0",
+        "bernard/bernard" : "~0.12",
+        "bernard/silex" : "dev-master"
+    }
+}
