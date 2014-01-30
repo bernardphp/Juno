@@ -1,0 +1,9 @@
+web1:
+    type: php
+    version: 5.5
+    http_document_root: web
+    php_extensions:
+        - zip
+        - curl
+    php_zend_extensions:
+        - opcache
