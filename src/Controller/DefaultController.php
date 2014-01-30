@@ -293,8 +293,6 @@ __halt_compiler();
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-        <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script src="/juno/bootstrap/js/bootstrap.js"></script -->
         <script src="/juno/app.js"></script>
     </body>
 </html>
