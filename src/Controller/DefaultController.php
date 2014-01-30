@@ -66,7 +66,7 @@ __halt_compiler();
                     The list below contains all the registered queues with the number of messages currently in the queue. Select a queue from below to view all messages currently pending on the queue.
                 </div>
 
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -104,7 +104,7 @@ __halt_compiler();
                     The list below shows all currently running consumers.
                 </div>
 
-                <table class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Name</th>
