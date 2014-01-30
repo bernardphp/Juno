@@ -5,6 +5,7 @@ code{white-space:pre-line;}
 
 .navbar-default .navbar-toggle{border:0}
 .navbar-default .navbar-toggle:hover{background:#00AA7F}
+.navbar-default .navbar-toggle:focus{background:#00AA7F}
 .navbar-default .navbar-toggle .icon-bar{background:#fff;}
 
 .navbar-default{margin-bottom:0;background:#00ba8b}

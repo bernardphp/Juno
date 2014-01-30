@@ -27,12 +27,12 @@ __halt_compiler();
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-juno .navbar-collapse">
+                    <a href="#" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-juno .navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>
+                    </a>
 
                     <a class="navbar-brand" href="#">Juno</a>
                 </div>
