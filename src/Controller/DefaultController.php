@@ -24,36 +24,44 @@ __halt_compiler();
     </head>
 
     <body>
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Juno</a>
                 </div>
-
-                <div class="navbar-collapse collapse">
-                </div>
             </div>
         </div>
 
-        <div class="navbar navbar-juno navbar-static-top">
+        <div class="navbar navbar-juno navbar-static-top" role="navigation">
             <div class="container">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-film"></span> Queues</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
-                    </li>
-                </ul>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-film"></span> Queues</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

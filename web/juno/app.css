@@ -3,6 +3,9 @@ a{color:#19bc9c}
 a:hover{color:#545454;text-decoration:underline}
 code{white-space:pre-line;}
 
+.navbar-toggle{border:1px solid #d5d5d5;}
+.navbar-toggle .icon-bar{background:#000;}
+
 .navbar-default{margin-bottom:0;background:#00ba8b}
 .navbar-default .navbar-brand{color:#fff;font-weight:bold;font-size:22px}
 .navbar-default .navbar-brand:hover{color:#fff;}
