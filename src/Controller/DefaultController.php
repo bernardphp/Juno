@@ -133,7 +133,136 @@ __halt_compiler();
         </div>
 
         <div class="container">
-            <p class="text-muted">MIT Licensed and open source over <a href="#">at GitHub</a>. More information at <a href="#">bernardphp.com</a>.</p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queue "proxy-analysis"</h3>
+                </div>
+
+                <div class="panel-body">
+                    Showing page 1 of 14.
+                </div>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th width="50">Timestamp</th>
+                            <th width="1">Name</th>
+                            <th width="1">Retries</th>
+                            <th width="1">Class</th>
+                            <th width="">Arguments</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>December 24, 2013 08:35</td>
+                            <td>Import</td>
+                            <td>0</td>
+                            <td><abbr title="Raven\Message\ImportMessage">ImportMessage</abbr></td>
+                            <td width="20"><code>&#039;device&#039; =&gt; &#039;Nord1_32&#039;, &#039;path&#039; =&gt; &#039;s3://grundfos-ipump/prod/Nord1_32/2013-12-24/1387870543.4378.json&#039;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-center">
+                    <ul class="pagination pagination-sm">
+                        <li><a href="#">less &laquo;</a></li>
+                        <li><a href="#">&laquo;&laquo;</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li class="active"><a href="#">9</a></li>
+                        <li><a href="#">10</a></li>
+                        <li><a href="#">11</a></li>
+                        <li><a href="#">more &raquo;</a></li>
+                        <li><a href="#">&raquo;&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Configuration</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            The table shows you current configuration for Bernard.
+                        </div>
+
+                        <table class="table table-striped table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>Driver</th>
+                                    <td>Doctrine</td>
+                                </tr>
+                                <tr>
+                                    <th>Serializer</th>
+                                    <td>Simple</td>
+                                </tr>
+                                <tr>
+                                    <th>Prefetch</th>
+                                    <td>~</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Driver</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            The table shows you the information the driver knows.
+                        </div>
+
+                        <table class="table table-striped table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                    <th width="50%">redis_version</th>
+                                    <td>2.2.12</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">redis_git_sha1</th>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">redis_git_dirty</th>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">arch_bits</th>
+                                    <td>64</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">multiplexing_api</th>
+                                    <td>epoll</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">process_id</th>
+                                    <td>1892</td>
+                                </tr>
+                                <tr>
+                                    <th width="50%">uptime_in_seconds</th>
+                                    <td>7258719</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <p class="text-center muted-text">
+                There needs to be a logo of bernard on this page with a link to the website. Pagination looks awful!
+                Code tag needs cleaning up. also messages table is missing bottom border.
+            </p>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
