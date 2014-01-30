@@ -1,4 +1,6 @@
 body{background:#f9f6f1}
+a{color:#19bc9c}
+a:hover{color:#545454;text-decoration:underline}
 
 .navbar-default{margin-bottom:0;background:#00ba8b}
 .navbar-default .navbar-brand{color:#fff;font-weight:bold;font-size:22px}

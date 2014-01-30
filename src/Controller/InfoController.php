@@ -8,10 +8,10 @@ class InfoController
 {
     public function indexAction(Application $app)
     {
+        $config = $app['bernard.config'];
+
         return $app->json(array(
-            'info' => array(
-                'driver' => 'FlatFile',
-            ),
+            'config' => $app['bernard.config'],
             'driver' => array(),
         ));
     }

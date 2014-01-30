@@ -77,17 +77,17 @@ __halt_compiler();
 
                     <tbody>
                         <tr>
-                            <td>import</td>
+                            <td><a href="#">import</a></td>
                             <td class="text-center"><span class="label label-success">OK</span></td>
                             <td class="text-right">10</td>
                         </tr>
                         <tr>
-                            <td>project-samples</td>
+                            <td><a href="#">project-samples</a></td>
                             <td class="text-center"><span class="label label-success">OK</span></td>
                             <td class="text-right">0</td>
                         </tr>
                         <tr class="failed">
-                            <td>failed</td>
+                            <td><a href="#">failed</a></td>
                             <td class="text-center"><span class="label label-warning">WARNING</span></td>
                             <td class="text-right">265</td>
                         </tr>
