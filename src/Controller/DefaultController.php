@@ -14,7 +14,7 @@ __halt_compiler();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Juno</title>
+        <title>Overview - Juno</title>
 
         <meta charset="utf-8" />
 
