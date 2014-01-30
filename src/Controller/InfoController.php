@@ -8,11 +8,11 @@ class InfoController
 {
     public function indexAction(Application $app)
     {
-        return $app->json(array());
-    }
-
-    public function driverAction(Application $app)
-    {
-        return $app->json(array());
+        return $app->json(array(
+            'info' => array(
+                'driver' => 'FlatFile',
+            ),
+            'driver' => array(),
+        ));
     }
 }

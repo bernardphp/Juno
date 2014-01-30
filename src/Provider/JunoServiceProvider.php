@@ -35,9 +35,6 @@ class JunoServiceProvider implements ServiceProviderInterface, ControllerProvide
         $controllers->get('/info.json', 'Juno\Controller\InfoController::indexAction')
             ->bind('juno_info_index');
 
-        $controllers->get('/info/driver.json', 'Juno\Controller\InfoController::driverAction')
-            ->bind('juno_info_driver');
-
         $controllers->get('/{url}', 'Juno\Controller\DefaultController::indexAction')
             ->bind('juno_homepage')->assert('url', '.{0,}?');
 

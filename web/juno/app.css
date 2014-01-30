@@ -12,7 +12,7 @@ body{background:#f9f6f1}
 .navbar-juno .nav li a{color:#b2afaa;text-align:center;padding:10px 20px 5px;}
 .navbar-juno .nav li a:hover{color:#888;background:none;}
 .navbar-juno .nav li.active a{color:#000;border-bottom:3px solid orange}
-
 .navbar-juno .glyphicon{display:block;font-size:20px;margin:0 auto 5px}
 
-.table-striped .failed td{background:pink !important}
+.panel-default{border-color:#d5d5d5}
+.panel-default .panel-heading{background-color:#f9f6f1;color:#525252;background:-webkit-linear-gradient(top, #f9f6f1 0%,#f2efea 100%)}

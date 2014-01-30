@@ -62,6 +62,10 @@ __halt_compiler();
                     <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queues</h3>
                 </div>
 
+                <div class="panel-body">
+                    The list below contains all the registered queues with the number of messages currently in the queue. Select a queue from below to view all messages currently pending on the queue.
+                </div>
+
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -86,6 +90,42 @@ __halt_compiler();
                             <td>failed</td>
                             <td class="text-center"><span class="label label-warning">WARNING</span></td>
                             <td class="text-right">265</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Consumers</h3>
+                </div>
+
+                <div class="panel-body">
+                    The list below shows all currently running consumers.
+                </div>
+
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Uptime</th>
+                            <th>Process</th>
+                            <th width="1">Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>/etc/service/import</td>
+                            <td>2 months</td>
+                            <td>10877</td>
+                            <td class="text-center"><span class="label label-success">OK</span></td>
+                        </tr>
+                        <tr>
+                            <td>/etc/service/project-samples</td>
+                            <td>2 months</td>
+                            <td>10878</td>
+                            <td class="text-center"><span class="label label-success">OK</span></td>
                         </tr>
                     </tbody>
                 </table>
