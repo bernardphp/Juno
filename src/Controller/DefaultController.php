@@ -73,33 +73,35 @@ __halt_compiler();
                     The list below contains all the registered queues with the number of messages currently in the queue. Select a queue from below to view all messages currently pending on the queue.
                 </div>
 
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th width="1">Status</th>
-                            <th width="1">Messages</th>
-                        </tr>
-                    </thead>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th width="1">Status</th>
+                                <th width="1">Messages</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td><a href="#">import</a></td>
-                            <td class="text-center"><span class="label label-success">OK</span></td>
-                            <td class="text-right">10</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">project-samples</a></td>
-                            <td class="text-center"><span class="label label-success">OK</span></td>
-                            <td class="text-right">0</td>
-                        </tr>
-                        <tr class="failed">
-                            <td><a href="#">failed</a></td>
-                            <td class="text-center"><span class="label label-warning">WARNING</span></td>
-                            <td class="text-right">265</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            <tr>
+                                <td><a href="#">import</a></td>
+                                <td class="text-center"><span class="label label-success">OK</span></td>
+                                <td class="text-right">10</td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">project-samples</a></td>
+                                <td class="text-center"><span class="label label-success">OK</span></td>
+                                <td class="text-right">0</td>
+                            </tr>
+                            <tr class="failed">
+                                <td><a href="#">failed</a></td>
+                                <td class="text-center"><span class="label label-warning">WARNING</span></td>
+                                <td class="text-right">265</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="panel panel-default">
@@ -111,31 +113,33 @@ __halt_compiler();
                     The list below shows all currently running consumers.
                 </div>
 
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Uptime</th>
-                            <th>Process</th>
-                            <th width="1">Status</th>
-                        </tr>
-                    </thead>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Uptime</th>
+                                <th width="1">Process</th>
+                                <th width="1">Status</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>/etc/service/import</td>
-                            <td>2 months</td>
-                            <td>10877</td>
-                            <td class="text-center"><span class="label label-success">OK</span></td>
-                        </tr>
-                        <tr>
-                            <td>/etc/service/project-samples</td>
-                            <td>2 months</td>
-                            <td>10878</td>
-                            <td class="text-center"><span class="label label-success">OK</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            <tr>
+                                <td>/etc/service/import</td>
+                                <td>2 months</td>
+                                <td class="text-center">10877</td>
+                                <td class="text-center"><span class="label label-success">OK</span></td>
+                            </tr>
+                            <tr>
+                                <td>/etc/service/project-samples</td>
+                                <td>2 months</td>
+                                <td class="text-center">10878</td>
+                                <td class="text-center"><span class="label label-success">OK</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -149,27 +153,39 @@ __halt_compiler();
                     Showing page 1 of 14.
                 </div>
 
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th width="50">Timestamp</th>
-                            <th width="1">Name</th>
-                            <th width="1">Retries</th>
-                            <th width="1">Class</th>
-                            <th width="">Arguments</th>
-                        </tr>
-                    </thead>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover table-messages">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Name</th>
+                                <th>Class</th>
+                                <th>Arguments</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>December 24, 2013 08:35</td>
-                            <td>Import</td>
-                            <td>0</td>
-                            <td><abbr title="Raven\Message\ImportMessage">ImportMessage</abbr></td>
-                            <td width="20"><code>&#039;device&#039; =&gt; &#039;Nord1_32&#039;, &#039;path&#039; =&gt; &#039;s3://grundfos-ipump/prod/Nord1_32/2013-12-24/1387870543.4378.json&#039;</code></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <tbody>
+                            <tr>
+                                <td style="white-space:nowrap">December 24, 2013 08:35</td>
+                                <td>Import</td>
+                                <td><abbr title="Raven\Message\ImportMessage">ImportMessage</abbr></td>
+                                <td><code>&#039;device&#039; =&gt; &#039;Nord1_32&#039;, &#039;path&#039; =&gt; &#039;s3://grundfos-ipump/prod/Nord1_32/2013-12-24/1387870543.4378.json&#039;</code></td>
+                            </tr>
+                            <tr>
+                                <td style="white-space:nowrap">December 24, 2013 08:35</td>
+                                <td>Import</td>
+                                <td><abbr title="Raven\Message\ImportMessage">ImportMessage</abbr></td>
+                                <td><code>&#039;device&#039; =&gt; &#039;Nord1_32&#039;, &#039;path&#039; =&gt; &#039;s3://grundfos-ipump/prod/Nord1_32/2013-12-24/1387870543.4378.json&#039;</code></td>
+                            </tr>
+                            <tr>
+                                <td style="white-space:nowrap">December 24, 2013 08:35</td>
+                                <td>Import</td>
+                                <td><abbr title="Raven\Message\ImportMessage">ImportMessage</abbr></td>
+                                <td><code>&#039;device&#039; =&gt; &#039;Nord1_32&#039;, &#039;path&#039; =&gt; &#039;s3://grundfos-ipump/prod/Nord1_32/2013-12-24/1387870543.4378.json&#039;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="text-center">
                     <ul class="pagination pagination-sm">
@@ -199,22 +215,24 @@ __halt_compiler();
                             The table shows you current configuration for Bernard.
                         </div>
 
-                        <table class="table table-striped table-bordered table-hover">
-                            <tbody>
-                                <tr>
-                                    <th>Driver</th>
-                                    <td>Doctrine</td>
-                                </tr>
-                                <tr>
-                                    <th>Serializer</th>
-                                    <td>Simple</td>
-                                </tr>
-                                <tr>
-                                    <th>Prefetch</th>
-                                    <td>~</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th>Driver</th>
+                                        <td>Doctrine</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Serializer</th>
+                                        <td>Simple</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Prefetch</th>
+                                        <td>~</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -228,38 +246,40 @@ __halt_compiler();
                             The table shows you the information the driver knows.
                         </div>
 
-                        <table class="table table-striped table-bordered table-hover">
-                            <tbody>
-                                <tr>
-                                    <th width="50%">redis_version</th>
-                                    <td>2.2.12</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">redis_git_sha1</th>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">redis_git_dirty</th>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">arch_bits</th>
-                                    <td>64</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">multiplexing_api</th>
-                                    <td>epoll</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">process_id</th>
-                                    <td>1892</td>
-                                </tr>
-                                <tr>
-                                    <th width="50%">uptime_in_seconds</th>
-                                    <td>7258719</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <tbody>
+                                    <tr>
+                                        <th width="50%">redis_version</th>
+                                        <td>2.2.12</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">redis_git_sha1</th>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">redis_git_dirty</th>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">arch_bits</th>
+                                        <td>64</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">multiplexing_api</th>
+                                        <td>epoll</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">process_id</th>
+                                        <td>1892</td>
+                                    </tr>
+                                    <tr>
+                                        <th width="50%">uptime_in_seconds</th>
+                                        <td>7258719</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -267,8 +287,8 @@ __halt_compiler();
 
         <div class="container">
             <p class="text-center muted-text">
-                There needs to be a logo of bernard on this page with a link to the website. Pagination looks awful!
-                Code tag needs cleaning up. also messages table is missing bottom border.
+                There needs to be a logo of bernard on this page with a link to the website. Needs colors that are
+                similiar to the ones found in the Bernard logo.
             </p>
         </div>
 

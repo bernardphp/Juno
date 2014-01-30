@@ -1,7 +1,9 @@
 body{background:#f9f6f1}
+code{white-space:normal;font-size:11px;}
+abbr{font-family:monospace}
+
 a{color:#19bc9c}
 a:hover{color:#545454;text-decoration:underline}
-code{white-space:pre-line;}
 
 .navbar-default .navbar-toggle{border:0}
 .navbar-default .navbar-toggle:hover{background:#00AA7F}
@@ -22,9 +24,17 @@ code{white-space:pre-line;}
 .navbar-juno .nav li.active a{color:#000;border-bottom:3px solid orange}
 .navbar-juno .glyphicon{display:block;font-size:20px;margin:0 auto 5px}
 
-.panel-default{border-color:#d5d5d5}
+.panel-default{border-color:#d5d5d5;overflow:hidden;}
 .panel-default .panel-heading{background-color:#f9f6f1;color:#525252;background:-webkit-linear-gradient(top, #f9f6f1 0%,#f2efea 100%)}
+
+.col-md-6 .panel-default .panel-body + .table-responsive{border-top:0}
+
+.pagination li.active a,.pagination li.active a:hover{background:#00AA7F;border-color:#00AA7F;font-weight:bold;}
 
 @media (max-width: 768px) {
     .navbar-juno{min-height:0px}
+}
+
+@media (min-width: 768px) {
+    .panel-default .table-responsive .table-messages tbody tr:last-child > td{border-bottom:1px solid #ddd}
 }
