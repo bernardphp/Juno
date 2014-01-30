@@ -132,6 +132,10 @@ __halt_compiler();
             </div>
         </div>
 
+        <div class="container">
+            <p class="text-muted">MIT Licensed and open source over <a href="#">at GitHub</a>. More information at <a href="#">bernardphp.com</a>.</p>
+        </div>
+
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
         <script src="/juno/app.js"></script>
     </body>
