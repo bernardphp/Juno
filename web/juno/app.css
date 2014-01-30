@@ -3,8 +3,9 @@ a{color:#19bc9c}
 a:hover{color:#545454;text-decoration:underline}
 code{white-space:pre-line;}
 
-.navbar-toggle{border:1px solid #d5d5d5;}
-.navbar-toggle .icon-bar{background:#000;}
+.navbar-default .navbar-toggle{border:0}
+.navbar-default .navbar-toggle:hover{background:#00AA7F}
+.navbar-default .navbar-toggle .icon-bar{background:#fff;}
 
 .navbar-default{margin-bottom:0;background:#00ba8b}
 .navbar-default .navbar-brand{color:#fff;font-weight:bold;font-size:22px}
@@ -22,3 +23,7 @@ code{white-space:pre-line;}
 
 .panel-default{border-color:#d5d5d5}
 .panel-default .panel-heading{background-color:#f9f6f1;color:#525252;background:-webkit-linear-gradient(top, #f9f6f1 0%,#f2efea 100%)}
+
+@media (max-width: 768px) {
+    .navbar-juno{min-height:0px}
+}

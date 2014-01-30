@@ -27,6 +27,13 @@ __halt_compiler();
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
                     <a class="navbar-brand" href="#">Juno</a>
                 </div>
             </div>
@@ -34,16 +41,7 @@ __halt_compiler();
 
         <div class="navbar navbar-juno navbar-static-top" role="navigation">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse" id="juno-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
@@ -275,6 +273,8 @@ __halt_compiler();
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="/juno/bootstrap/js/bootstrap.js"></script>
         <script src="/juno/app.js"></script>
     </body>
 </html>
