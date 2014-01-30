@@ -27,7 +27,7 @@ __halt_compiler();
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-juno .navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -41,7 +41,7 @@ __halt_compiler();
 
         <div class="navbar navbar-juno navbar-static-top" role="navigation">
             <div class="container">
-                <div class="navbar-collapse collapse" id="juno-collapse">
+                <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
