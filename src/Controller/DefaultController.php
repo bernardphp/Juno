@@ -12,7 +12,7 @@ class DefaultController
 
 __halt_compiler();
 <!DOCTYPE html>
-<html>
+<html ng-app="Juno">
     <head>
         <title>Overview - Juno</title>
 
@@ -23,11 +23,11 @@ __halt_compiler();
         <link rel="stylesheet" href="/juno/app.css" />
     </head>
 
-    <body>
+    <body ng-controller="DefaultController">
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="#" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-juno .navbar-collapse">
+                    <a href="#" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -41,7 +41,7 @@ __halt_compiler();
 
         <div class="navbar navbar-juno navbar-static-top" role="navigation">
             <div class="container">
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse" ng-class="{'collapse' : !isCollapsed }">
                     <ul class="nav navbar-nav">
                         <li class="active">
                             <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
@@ -293,8 +293,8 @@ __halt_compiler();
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script src="/juno/bootstrap/js/bootstrap.js"></script>
+        <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script src="/juno/bootstrap/js/bootstrap.js"></script -->
         <script src="/juno/app.js"></script>
     </body>
 </html>
