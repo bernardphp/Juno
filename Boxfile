@@ -1,7 +1,7 @@
 web1:
     type: php
     version: 5.4
-    httpd_document_root: web
+    document_root: web
     php_extensions:
         - zip
         - curl
