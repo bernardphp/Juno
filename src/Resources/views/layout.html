@@ -36,19 +36,19 @@
                         </li>
 
                         <li ng-class="{ 'active' : ['QueueController', 'QueuesController'].indexOf(route.current.controller) != -1 }">
-                            <a ng-href="/queue"><span class="glyphicon glyphicon-film"></span> Queues</a>
+                            <a ng-href="./queue"><span class="glyphicon glyphicon-film"></span> Queues</a>
                         </li>
 
                         <li ng-class="{ 'active' : route.current.controller == 'FailedController' }">
-                            <a ng-href="/queue/failed"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
+                            <a ng-href="./queue/failed"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
                         </li>
 
                         <li ng-class="{ 'active' : route.current.controller == 'ConsumersController' }">
-                            <a ng-href="/consumer"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
+                            <a ng-href="./consumer"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
                         </li>
 
                         <li ng-class="{ 'active' : route.current.controller == 'InfoController' }">
-                            <a ng-href="/info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+                            <a ng-href="./info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
                         </li>
                     </ul>
                 </div>

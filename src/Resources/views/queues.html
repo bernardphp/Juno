@@ -19,7 +19,7 @@
 
             <tbody>
                 <tr ng-repeat="queue in queues">
-                    <td><a ng-href="/queue/{{ queue.name }}">{{ queue.name }}</a></td>
+                    <td><a ng-href="./queue/{{ queue.name }}">{{ queue.name }}</a></td>
                     <td class="text-center">
                         <span ng-if="queue.count < 50" class="label label-success">OK</span>
                         <span ng-if="queue.count > 50" class="label label-warning">WARNING</span>
