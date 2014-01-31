@@ -10,7 +10,7 @@ class DefaultController
     public function indexAction(Application $app)
     {
         return $this->render($app, 'layout.html', array(
-            '%mount_prefix%' => $app['juno.mount_prefix'],
+            '%mount_prefix%' => rtrim($app['juno.mount_prefix'], '/') . '/',
         ));
     }
 
