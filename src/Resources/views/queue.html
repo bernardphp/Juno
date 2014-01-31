@@ -39,7 +39,7 @@
             <li ng-if="page > 1"><a href="queue/{{ queue }}">&laquo;&laquo;</a></li>
             <li ng-if="page > 1"><a href="queue/{{ queue }}?page={{ page - 1 }}">less &laquo;</a></li>
 
-            <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | range:(page > 5 ? page - 5 : 0):(page + 4 < pages ? page + 4 : pages)">
+            <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | pagination:page:pages">
                 <a href="queue/{{ queue }}?page={{ index + 1 }}">{{ index + 1 }}</a>
             </li>
 
