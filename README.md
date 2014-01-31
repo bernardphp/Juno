@@ -77,3 +77,24 @@ $map = new UrlMap($myApp, array(
 
 Stack\run($map);
 ```
+
+### Within a Silex Application
+
+Juno is written as `ServiceProviderInterface` and `ControllerProviderInterface` implementations. This lets you embed
+it directly by using the service providers. The service provider uses the `boot` method to mount the controller provider.
+
+``` php
+<?php
+
+use Silex\Application;
+use Juno\Provider\JunoServiceProvider);
+use Bernard\Silex\BernardServiceProvider;
+
+$app = new Silex\Applcation(array('debug' => true));
+$app->register(new BernardServiceProvider);
+$app->register(new JunoServiceProvider, array(
+    'juno.mount_prefix' => '/_juno',
+));
+$app->run();
+```
+
