@@ -124,15 +124,6 @@ Juno.filter('timeAgo', function () {
     };
 });
 
-Juno.filter('split', function() {
-    return function(input, delimiter) {
-        var delimiter = delimiter || ',';
-        var pieces = input.split(delimiter);
-
-        return pieces[pieces.length -1];
-    };
-});
-
 Juno.filter('empty', function () {
     return function (input) {
         return angular.equals({}, input) || angular.equals([], input);
@@ -144,7 +135,7 @@ Juno.filter('pagination', function () {
         var start = Math.max(1, parseInt(current - 4)) - 1;
         var end = Math.min(current + 4, max);
 
-        return Array.apply(null, Array(end - start)).map(function (_, i) {
+        return Array.apply(null, Array(Math.max(5, end - start))).map(function (_, i) {
             return i + start;
         });
     };

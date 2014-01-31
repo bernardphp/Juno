@@ -15,6 +15,7 @@
     },
 
     "require-dev" : {
-        "symfony/browser-kit" : "~2.4"
+        "symfony/browser-kit" : "~2.4",
+        "doctrine/dbal" : "~2.0"
     }
 }

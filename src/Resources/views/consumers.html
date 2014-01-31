@@ -20,7 +20,7 @@
 
             <tbody>
                 <tr ng-repeat="consumer in consumers">
-                    <td>{{ consumer.path }}</td>
+                    <td>{{ consumer.name }}</td>
                     <td ng-if="consumer.running">{{ consumer.uptime * 1000 | timeAgo }}</td>
                     <td ng-if="consumer.running == false">~</td>
                     <td class="text-center">{{ consumer.process || '~' }}</td>

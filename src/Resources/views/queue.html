@@ -21,14 +21,13 @@
             <tbody>
                 <tr ng-repeat="message in queue.messages">
                     <td style="white-space:nowrap">{{ message.timestamp * 1000 | date:'medium' }}</td>
-                    <td>{{ message.name }}</td>
-                    <td><abbr title="{{ message.class }}">{{ message.class | split:'\\' }}</abbr></td>
+                    <td><abbr title="{{ message.class }}">{{ message.name }}</abbr></td>
                     <td ng-if="message.arguments"><code>{{ message.arguments | json }}</code></td>
                     <td ng-if="message.arguments | empty"><code>~</code></td>
                 </tr>
 
-                <tr ng-if="messages.length == 0">
-                    <td colspan="4">No messages in this queue...</td>
+                <tr ng-if="queue.messages | empty">
+                    <td colspan="3">No messages in this queue...</td>
                 </tr>
             </tbody>
         </table>
