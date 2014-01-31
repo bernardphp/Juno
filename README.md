@@ -98,6 +98,24 @@ $app->register(new JunoServiceProvider, array(
 $app->run();
 ```
 
+#### Trailing Slash
+
+When mounting a controller provider in silex it will always add a trailing slash. This will prohibit accessing
+`/_juno`. To fix this a simple get route can be added to you application.
+
+``` php
+<?php
+
+use Silex\Application;
+use Juno\Provider\JunoServiceProvider;
+
+$app = new Silex\Application();
+$app->register(new JunoServiceProvider, array('juno.mount_prefix' => '/_juno'));
+$app->get('/_juno', 'Juno\Controller\DefaultController::indexAction');
+
+// .. the rest of you app and the $app->run(); call.
+```
+
 Extending
 ---------
 
@@ -119,13 +137,4 @@ $app['juno.template_locator'] = $app->share($app->extend('juno.template_locator'
 }));
 ```
 
-There is a number of core templates. Theese are described below.
-
-| Name               | Description                                                      |
-| ------------------ | ---------------------------------------------------------------- |
-| `queues.html`      | Showing the list of queues on the frontpage aswell as `/queue`.  |
-| `queue.html`       | Show a list of messages.                                         |
-| `consumers.html`   | Showing the list of consumers on the frontpage and `/consumer`.  |
-| `info.html`        | For the info site                                                |
-| `layout.html`      | Main layout. This is loaded by `DefaultController::indexAction`. |
-| `overview.html`    | Fronpage                                                         |
+The templates used as standard can be found in `src/Resources/views`.
