@@ -16,10 +16,10 @@ class EnvelopeIterator implements \Iterator
         $envelope = current($this->envelopes);
 
         return array(
-                'timestamp' => $envelope->getTimestamp(),
-                'class'     => $envelope->getClass(),
-                'name'      => $envelope->getName(),
-                'arguments' => (array) $envelope->getMessage(),
+            'timestamp' => $envelope->getTimestamp(),
+            'class'     => $envelope->getClass(),
+            'name'      => $envelope->getName(),
+            'arguments' => get_object_vars($envelope->getMessage()),
         );
     }
 
