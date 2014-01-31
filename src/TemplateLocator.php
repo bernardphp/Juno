@@ -30,4 +30,9 @@ class TemplateLocator
 
         throw new InvalidArgumentException('Could not locate "' . $file . '" in "' . json_encode($this->paths) . '"');
     }
+
+    public function load($file)
+    {
+        return file_get_contents($this->locate($file));
+    }
 }

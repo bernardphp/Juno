@@ -135,18 +135,14 @@ Juno.filter('split', function() {
 
 Juno.filter('empty', function () {
     return function (input) {
-        return angular.equals({}, input);
+        return angular.equals({}, input) || angular.equals([], input);
     };
 });
 
 Juno.filter('range', function () {
-    return function (input, range) {
-        return Array.apply(null, Array(range)).map(function (_, i) {return i;});
-    }
-});
-
-Juno.filter('startFrom', function () {
-    return function (input, index) {
-        return input.slice(index);
+    return function (input, from, to) {
+        return Array.apply(null, Array(to - from)).map(function (_, i) {
+            return i + from;
+        });
     }
 });
