@@ -98,3 +98,34 @@ $app->register(new JunoServiceProvider, array(
 $app->run();
 ```
 
+Extending
+---------
+
+As each Bernard installiation can use custom middleware that could collect statistics and so on. It is important
+that theese can be shown in Juno.
+
+### Custom Templates
+
+Juno implements a `juno_template.locator` that is used to find the different templates for AngularJS. To add a directory
+to this service just extend it with `->add()`;
+
+``` php
+<?php
+
+$app['juno.template_locator'] = $app->share($app->extend('juno.template_locator', function ($locator, $app) {
+    $locator->add('/my/dir/with/custom/templates');
+
+    return $locator;
+}));
+```
+
+There is a number of core templates. Theese are described below.
+
+| Name               | Description                                                      |
+| ------------------ | ---------------------------------------------------------------- |
+| `queues.html`      | Showing the list of queues on the frontpage aswell as `/queue`.  |
+| `queue.html`       | Show a list of messages.                                         |
+| `consumers.html`   | Showing the list of consumers on the frontpage and `/consumer`.  |
+| `info.html`        | For the info site                                                |
+| `layout.html`      | Main layout. This is loaded by `DefaultController::indexAction`. |
+| `overview.html`    | Fronpage                                                         |
