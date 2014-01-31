@@ -34,7 +34,7 @@ __halt_compiler();
                         <span class="icon-bar"></span>
                     </a>
 
-                    <a class="navbar-brand" href="#">Juno</a>
+                    <a class="navbar-brand" href="/">Juno</a>
                 </div>
             </div>
         </div>
@@ -43,26 +43,33 @@ __halt_compiler();
             <div class="container">
                 <div class="navbar-collapse" ng-class="{'collapse' : !isCollapsed }">
                     <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
+                        <li ng-class="{ 'active' : route.current.controller == 'OverviewController' }">
+                            <a ng-href="/"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
                         </li>
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-film"></span> Queues</a>
+
+                        <li ng-class="{ 'active' : ['QueueController', 'QueuesController'].indexOf(route.current.controller) != -1 }">
+                            <a ng-href="/queue"><span class="glyphicon glyphicon-film"></span> Queues</a>
                         </li>
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
+
+                        <li ng-class="{ 'active' : route.current.controller == 'ConsumersController' }">
+                            <a ng-href="/consumer"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
                         </li>
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
+
+                        <li ng-class="{ 'active' : route.current.controller == 'FailedController' }">
+                            <a ng-href="/queue/failed"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
                         </li>
-                        <li>
-                            <a href="#"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+
+                        <li ng-class="{ 'active' : route.current.controller == 'InfoController' }">
+                            <a ng-href="/info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
+        <div class="container" ng-view></div>
+
+        <!-- 
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -284,6 +291,7 @@ __halt_compiler();
                 </div>
             </div>
         </div>
+        -->
 
         <div class="container">
             <p class="text-center muted-text">
@@ -292,7 +300,10 @@ __halt_compiler();
             </p>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-resource.js"></script>
         <script src="/juno/app.js"></script>
+        <script src="/juno/utils.js"></script>
     </body>
 </html>

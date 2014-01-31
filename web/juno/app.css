@@ -31,6 +31,8 @@ a:hover{color:#545454;text-decoration:underline}
 
 .pagination li.active a,.pagination li.active a:hover{background:#00AA7F;border-color:#00AA7F;font-weight:bold;}
 
+.table-pretty-headers th{text-transform:capitalize}
+
 @media (max-width: 768px) {
     .navbar-juno{min-height:0px}
 }

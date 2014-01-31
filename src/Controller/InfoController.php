@@ -9,10 +9,8 @@ class InfoController
     public function indexAction(Application $app)
     {
         $config = $app['bernard.config'];
+        $driver = array();
 
-        return $app->json(array(
-            'config' => $app['bernard.config'],
-            'driver' => array(),
-        ));
+        return json_encode(compact('config', 'driver'), JSON_FORCE_OBJECT);
     }
 }

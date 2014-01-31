@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Configuration</h3>
+            </div>
+
+            <div class="panel-body">
+                The table shows you current configuration for Bernard.
+            </div>
+
+            <div class="table-responsive table-pretty-headers">
+                <table class="table table-striped table-bordered table-hover">
+                    <tbody>
+                        <tr ng-repeat="(key, value) in info.config">
+                            <th>{{ key }}</th>
+                            <td>{{ value || '~' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Driver</h3>
+            </div>
+
+            <div class="panel-body">
+                The table shows you the information the driver knows.
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <tbody>
+                        <tr ng-repeat="(key, value) in info.driver">
+                            <th width="50%">redis_version</th>
+                            <td>2.2.12</td>
+                        </tr>
+
+                        <tr ng-if="info.driver | empty">
+                            <td colspan="2">No additional information found...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
