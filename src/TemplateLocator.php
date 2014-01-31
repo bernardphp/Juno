@@ -21,9 +21,10 @@ class TemplateLocator
     public function locate($file)
     {
         foreach ($this->paths as $path) {
-            $path = $path . '/' . $file;
+            $file = str_replace('/', '\\', $file);
+            $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $file;
 
-            if (is_file($path)) {
+            if ($this->exists($path)) {
                 return $path;
             }
         }
@@ -31,8 +32,13 @@ class TemplateLocator
         throw new InvalidArgumentException('Could not locate "' . $file . '" in "' . json_encode($this->paths) . '"');
     }
 
-    public function load($file)
+    public function render($file, array $values = array())
     {
-        return file_get_contents($this->locate($file));
+        return strtr(file_get_contents($this->locate($file)), $values);
+    }
+
+    protected function exists($path)
+    {
+        return is_file($path);
     }
 }

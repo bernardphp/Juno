@@ -9,18 +9,18 @@ class DefaultController
 {
     public function indexAction(Application $app)
     {
-        return $this->load($app, 'layout');
+        return $this->render($app, 'layout.html', array(
+            '%mount_prefix%' => $app['juno.mount_prefix'],
+        ));
     }
 
     public function templateAction(Application $app, $name)
     {
-        return $this->load($app, $name);
+        return $this->render($app, $name . '.html');
     }
 
-    protected function load(Application $app, $name)
+    protected function render(Application $app, $template, array $values = array())
     {
-        $name = filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
-        return $app['juno.template_locator']->load($name . '.html');
+        return $app['juno.template_locator']->render($template, $values);
     }
 }
