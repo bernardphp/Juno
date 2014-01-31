@@ -144,3 +144,9 @@ Juno.filter('range', function () {
         return Array.apply(null, Array(range)).map(function (_, i) {return i;});
     }
 });
+
+Juno.filter('startFrom', function () {
+    return function (input, index) {
+        return input.slice(index);
+    }
+});

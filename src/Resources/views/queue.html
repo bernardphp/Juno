@@ -35,13 +35,15 @@
 
     <div class="text-center">
         <ul class="pagination pagination-sm">
-            <li ng-if="page > 1"><a href="#">&laquo;&laquo;</a></li>
-            <li ng-if="page > 1"><a href="#">less &laquo;</a></li>
+            <li ng-if="page > 1"><a href="queue/{{ queue }}">&laquo;&laquo;</a></li>
+            <li ng-if="page > 1"><a href="queue/{{ queue }}?page={{ page - 1 }}">less &laquo;</a></li>
 
-            <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | range:(pages - 1) | limitTo:11"><a href="#">{{ index + 1 }}</a></li>
+            <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | range:(pages - 1) | startFrom:(page > 5 ? page - 5 : 0) | limitTo:9">
+                <a href="queue/{{ queue }}?page={{ index + 1 }}">{{ index + 1 }}</a>
+            </li>
 
-            <li ng-if="page < pages"><a href="#">more &raquo;</a></li>
-            <li ng-if="page < pages"><a href="#">&raquo;&raquo;</a></li>
+            <li ng-if="page < pages"><a href="queue/{{ queue }}?page={{ page + 1 }}">more &raquo;</a></li>
+            <li ng-if="page < pages"><a href="queue/{{ queue }}?page={{ pages }}">&raquo;&raquo;</a></li>
         </ul>
     </div>
 </div>
