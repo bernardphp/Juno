@@ -34,15 +34,15 @@
 
     <div class="text-center">
         <ul class="pagination pagination-sm">
-            <li ng-if="page > 1"><a href="queue/{{ queue.name }}">&laquo;&laquo;</a></li>
-            <li ng-if="page > 1"><a href="queue/{{ queue.name }}?page={{ page - 1 }}">&laquo; less</a></li>
+            <li ng-if="page > 1"><a href="./queue/{{ queue.name }}">&laquo;&laquo;</a></li>
+            <li ng-if="page > 1"><a href="./queue/{{ queue.name }}?page={{ page - 1 }}">&laquo; less</a></li>
 
             <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | pagination:page:pages">
-                <a href="queue/{{ queue.name }}?page={{ index + 1 }}">{{ index + 1 }}</a>
+                <a href="./queue/{{ queue.name }}?page={{ index + 1 }}">{{ index + 1 }}</a>
             </li>
 
-            <li ng-if="page < pages"><a href="queue/{{ queue.name }}?page={{ page + 1 }}">more &raquo;</a></li>
-            <li ng-if="page < pages"><a href="queue/{{ queue.name }}?page={{ pages }}">&raquo;&raquo;</a></li>
+            <li ng-if="page < pages"><a href="./queue/{{ queue.name }}?page={{ page + 1 }}">more &raquo;</a></li>
+            <li ng-if="page < pages"><a href="./queue/{{ queue.name }}?page={{ pages }}">&raquo;&raquo;</a></li>
         </ul>
     </div>
 </div>
