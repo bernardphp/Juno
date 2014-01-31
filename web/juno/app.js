@@ -1,20 +1,20 @@
 var Juno = angular.module('Juno', ['ngRoute', 'ngResource']);
 
 Juno.factory('Queue', ['$resource', function ($resource) {
-    return $resource('/queue/:queue.json', {}, {
+    return $resource('queue/:queue.json', {}, {
         all : { method : 'GET', params : {}, isArray : false },
         find : { method : 'GET', params : {}, isArray : true }
     });
 }]);
 
 Juno.factory('Consumer', ['$resource', function ($resource) {
-    return $resource('/consumer.json', {}, {
+    return $resource('consumer.json', {}, {
         all : { method : 'GET', params : {}, isArray : false }
     });
 }]);
 
 Juno.factory('Info', ['$resource', function ($resource) {
-    return $resource('/info.json', {}, {});
+    return $resource('info.json', {}, {});
 }]);
 
 Juno.controller('DefaultController', ['$scope', '$route', '$routeParams', function ($scope, $route, $routeParams) {
@@ -49,32 +49,32 @@ Juno.config(['$routeProvider', '$locationProvider', function ($routeProvider, $l
     $locationProvider.html5Mode(true);
 
     $routeProvider.when('/', {
-        templateUrl : '/juno/templates/overview.html',
+        templateUrl : 'template/overview',
         controller : 'OverviewController'
     });
 
     $routeProvider.when('/info', {
-        templateUrl : '/juno/templates/info.html',
+        templateUrl : 'template/info',
         controller : 'InfoController'
     });
 
     $routeProvider.when('/queue', {
-        templateUrl : '/juno/templates/queues.html',
+        templateUrl : 'template/queues',
         controller : 'QueuesController'
     });
 
     $routeProvider.when('/queue/failed', {
-        templateUrl : '/juno/templates/queue.html',
+        templateUrl : 'template/queue',
         controller : 'FailedController'
     });
 
     $routeProvider.when('/queue/:queue', {
-        templateUrl : '/juno/templates/queue.html',
+        templateUrl : 'template/queue',
         controller : 'QueueController'
     });
 
     $routeProvider.when('/consumer', {
-        templateUrl : '/juno/templates/consumers.html',
+        templateUrl : 'template/consumers',
         controller : 'ConsumersController'
     });
 

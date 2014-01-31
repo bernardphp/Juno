@@ -2,11 +2,24 @@
 
 namespace Juno\Controller;
 
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 class DefaultController
 {
     public function indexAction()
     {
         return file_get_contents(__FILE__, null, null, __COMPILER_HALT_OFFSET__);
+    }
+
+    public function templateAction($name)
+    {
+        filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if (!is_file($file = __DIR__ . '/../Resources/views/' . $name . '.html')) {
+            throw new NotFoundHttpException();
+        }
+
+        return file_get_contents($file);
     }
 }
 
@@ -15,6 +28,7 @@ __halt_compiler();
 <html ng-app="Juno">
     <head>
         <title>Overview - Juno</title>
+        <base href="/" />
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />

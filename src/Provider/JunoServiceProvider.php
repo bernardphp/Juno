@@ -29,6 +29,9 @@ class JunoServiceProvider implements ServiceProviderInterface, ControllerProvide
         $controllers->get('/queue/{queue}.json', 'Juno\Controller\QueueController::showAction')
             ->bind('juno_queue_show');
 
+        $controllers->get('/template/{name}', 'Juno\Controller\DefaultController::templateAction')
+            ->bind('juno_default_template');
+
         $controllers->get('/consumer.json', 'Juno\Controller\ConsumerController::indexAction')
             ->bind('juno_consumer_index');
 
