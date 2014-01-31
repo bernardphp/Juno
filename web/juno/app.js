@@ -1,16 +1,11 @@
 var Juno = angular.module('Juno', ['ngRoute', 'ngResource']);
 
 Juno.factory('Queue', ['$resource', function ($resource) {
-    return $resource('queue/:queue.json', {}, {
-        all : { method : 'GET', params : {}, isArray : false },
-        find : { method : 'GET', params : {}, isArray : true }
-    });
+    return $resource('queue/:queue.json', {}, {});
 }]);
 
 Juno.factory('Consumer', ['$resource', function ($resource) {
-    return $resource('consumer.json', {}, {
-        all : { method : 'GET', params : {}, isArray : false }
-    });
+    return $resource('consumer.json', {}, {});
 }]);
 
 Juno.factory('Info', ['$resource', function ($resource) {
@@ -30,24 +25,18 @@ Juno.controller('InfoController', ['$scope', 'Info', function ($scope, Info) {
 }]);
 
 Juno.controller('QueuesController', ['$scope', 'Queue', function ($scope, Queue) {
-    $scope.queues = Queue.all();
+    $scope.queues = Queue.query();
 }]);
 
 Juno.controller('QueueController', ['$scope', '$routeParams', 'Queue', function ($scope, $routeParams, Queue) {
-    $scope.messages = Queue.find({ queue : $routeParams.queue });
-    $scope.queue    = $routeParams.queue;
-    $scope.page     = parseInt($routeParams.page || 1);
-    $scope.pages    = Math.ceil(1000 / 10);
-
-
-}]);
-
-Juno.controller('FailedController', ['$scope', function ($scope) {
-    $scope.messages = [];
+    $scope.page  = parseInt($routeParams.page) || 1;
+    $scope.queue = Queue.get({ queue : $routeParams.queue }, function (data) {
+        $scope.pages = data.count;;
+    });
 }]);
 
 Juno.controller('ConsumersController', ['$scope', 'Consumer', function ($scope, Consumer) {
-    $scope.consumers = Consumer.all();
+    $scope.consumers = Consumer.query();
 }]);
 
 Juno.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -66,11 +55,6 @@ Juno.config(['$routeProvider', '$locationProvider', function ($routeProvider, $l
     $routeProvider.when('/queue', {
         templateUrl : 'template/queues',
         controller : 'QueuesController'
-    });
-
-    $routeProvider.when('/queue/failed', {
-        templateUrl : 'template/queue',
-        controller : 'FailedController'
     });
 
     $routeProvider.when('/queue/:queue', {

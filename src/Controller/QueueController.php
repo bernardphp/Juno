@@ -2,42 +2,43 @@
 
 namespace Juno\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Silex\Application;
 
 class QueueController
 {
     public function indexAction(Application $app, $_format = '')
     {
-        return json_encode(array(
-            'proxy-analysis'  => 20,
-            'send-newsletter' => 100,
-            'failure'         => 1,
-            'high'            => 12323,
-        ), JSON_FORCE_OBJECT);
+        return json_encode([
+            ['name' => 'proxy-analysis', 'count' => 20],
+            ['name' => 'send-newsletter', 'count' => 100],
+            ['name' => 'failure', 'count' => 1],
+            ['name' => 'high', 'count' => 12323],
+        ]);
     }
 
-    public function showAction(Application $app, $queue)
+    public function showAction(Application $app, Request $request, $queue)
     {
-        return $app->json(array(
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-            array('timestamp' => time(), 'name' => 'Import', 'retries' => 0, 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array()),
-        ));
+        $offset = $request->query->get('offset', 1);
+        $limit  = $request->query->get('limit', 50);
+
+        // $messages = $app['bernard.driver']->peekQueue($queue, $offset, $limit);
+        // $count = $app['bernard.driver']->countMessages($queue);
+
+        return json_encode([
+            'name' => $queue,
+            'count' => rand(0, 1000),
+            'messages' => [
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+                ['timestamp' => time(), 'name' => 'Import', 'class' => 'Bernard\Message\DefaultMessage', 'arguments' => array('id' => 1, 'customer' => 'Grundfos')],
+            ]
+        ]);
     }
 }

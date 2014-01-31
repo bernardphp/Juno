@@ -19,10 +19,11 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="(name, consumer) in consumers">
-                    <td>{{ name }}</td>
-                    <td>{{ consumer.uptime * 1000 | timeAgo }}</td>
-                    <td class="text-center">{{ consumer.process }}</td>
+                <tr ng-repeat="consumer in consumers">
+                    <td>{{ consumer.path }}</td>
+                    <td ng-if="consumer.running">{{ consumer.uptime * 1000 | timeAgo }}</td>
+                    <td ng-if="consumer.running == false">~</td>
+                    <td class="text-center">{{ consumer.process || '~' }}</td>
                     <td class="text-center">
                         <span ng-if="consumer.running" class="label label-success">OK</span>
                         <span ng-if="consumer.running == false" class="label label-danger">ERROR</span>

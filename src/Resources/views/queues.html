@@ -18,13 +18,13 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="(queue, count) in queues">
-                    <td><a ng-href="/queue/{{ queue }}">{{ queue }}</a></td>
+                <tr ng-repeat="queue in queues">
+                    <td><a ng-href="/queue/{{ queue.name }}">{{ queue.name }}</a></td>
                     <td class="text-center">
-                        <span ng-if="count < 50" class="label label-success">OK</span>
-                        <span ng-if="count > 50" class="label label-warning">WARNING</span>
+                        <span ng-if="queue.count < 50" class="label label-success">OK</span>
+                        <span ng-if="queue.count > 50" class="label label-warning">WARNING</span>
                     </td>
-                    <td class="text-right">{{ count }}</td>
+                    <td class="text-right">{{ queue.count }}</td>
                 </tr>
 
                 <tr ng-if="queues | empty">

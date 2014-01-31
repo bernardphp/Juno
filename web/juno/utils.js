@@ -141,10 +141,8 @@ Juno.filter('empty', function () {
 
 Juno.filter('pagination', function () {
     return function (input, current, max) {
-        var start = Math.max(1, current - 4) - 1;
+        var start = Math.max(1, parseInt(current - 4)) - 1;
         var end = Math.min(current + 4, max);
-
-        console.log(end, start);
 
         return Array.apply(null, Array(end - start)).map(function (_, i) {
             return i + start;
