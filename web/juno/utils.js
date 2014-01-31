@@ -138,3 +138,9 @@ Juno.filter('empty', function () {
         return angular.equals({}, input);
     };
 });
+
+Juno.filter('range', function () {
+    return function (input, range) {
+        return Array.apply(null, Array(range)).map(function (_, i) {return i;});
+    }
+});

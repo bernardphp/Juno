@@ -1,10 +1,10 @@
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queue "proxy-analysis"</h3>
+        <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queue "{{ queue }}"</h3>
     </div>
 
     <div class="panel-body">
-        Showing page 1 of 14.
+        Showing page {{ page }} of {{ pages }}.
     </div>
 
     <div class="table-responsive">
@@ -35,15 +35,13 @@
 
     <div class="text-center">
         <ul class="pagination pagination-sm">
-            <li><a href="#">less &laquo;</a></li>
-            <li><a href="#">&laquo;&laquo;</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li class="active"><a href="#">9</a></li>
-            <li><a href="#">10</a></li>
-            <li><a href="#">11</a></li>
-            <li><a href="#">more &raquo;</a></li>
-            <li><a href="#">&raquo;&raquo;</a></li>
+            <li ng-if="page > 1"><a href="#">&laquo;&laquo;</a></li>
+            <li ng-if="page > 1"><a href="#">less &laquo;</a></li>
+
+            <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | range:(pages - 1) | limitTo:11"><a href="#">{{ index + 1 }}</a></li>
+
+            <li ng-if="page < pages"><a href="#">more &raquo;</a></li>
+            <li ng-if="page < pages"><a href="#">&raquo;&raquo;</a></li>
         </ul>
     </div>
 </div>

@@ -35,6 +35,11 @@ Juno.controller('QueuesController', ['$scope', 'Queue', function ($scope, Queue)
 
 Juno.controller('QueueController', ['$scope', '$routeParams', 'Queue', function ($scope, $routeParams, Queue) {
     $scope.messages = Queue.find({ queue : $routeParams.queue });
+    $scope.queue    = $routeParams.queue;
+    $scope.page     = $routeParams.page || 1;
+    $scope.pages    = Math.ceil(1000 / 10);
+
+
 }]);
 
 Juno.controller('FailedController', ['$scope', function ($scope) {
