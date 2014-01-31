@@ -1,6 +1,26 @@
 (function () {
     "use strict";
 
+    Juno.filter('empty', function () {
+        return function (input) {
+            return angular.equals({}, input) || angular.equals([], input);
+        };
+    });
+
+    Juno.filter('pagination', function () {
+        return function (input, current, max) {
+            // sometimes the filter is used without the full max being loading, this makes current
+            // wayyy high than max. So in this edge case we want the lowest value.
+            current = Math.min(current, max);
+
+            var start = Math.max(current - 6, 0);
+
+            return Array.apply(null, Array(Math.min(current + 5, max) - start)).map(function (_, i) {
+                return start + i;
+            });
+        };
+    });
+
     Juno.filter('timeAgo', function () {
         return function (time_ago, accuracy, time_now) {
             var timeAgo = {
@@ -122,23 +142,6 @@
             };
 
             return timeAgo.execute(time_ago, accuracy, time_now);
-        };
-    });
-
-    Juno.filter('empty', function () {
-        return function (input) {
-            return angular.equals({}, input) || angular.equals([], input);
-        };
-    });
-
-    Juno.filter('pagination', function () {
-        return function (input, current, max) {
-            var start = Math.max(1, parseInt(current - 4)) - 1;
-            var end = Math.min(current + 4, max);
-
-            return Array.apply(null, Array(Math.max(5, end - start))).map(function (_, i) {
-                return i + start;
-            });
         };
     });
 })();
