@@ -6,12 +6,17 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Silex\ControllerProviderInterface;
 use Juno\EventListener\AcceptListener;
+use Juno\TemplateLocator;
 
 class JunoServiceProvider implements ServiceProviderInterface, ControllerProviderInterface
 {
     public function register(Application $app)
     {
         $app['juno.mount_prefix'] = '/';
+
+        $app['juno.template_locator'] = $app->share(function () {
+            return new TemplateLocator(array(__DIR__ . '/../Resources/views'));
+        });
     }
 
     public function boot(Application $app)

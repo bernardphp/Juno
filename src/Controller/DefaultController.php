@@ -2,6 +2,7 @@
 
 namespace Juno\Controller;
 
+use Silex\Application;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController
@@ -11,15 +12,11 @@ class DefaultController
         return file_get_contents(__FILE__, null, null, __COMPILER_HALT_OFFSET__);
     }
 
-    public function templateAction($name)
+    public function templateAction(Application $app, $name)
     {
-        filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $name = filter_var($name, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if (!is_file($file = __DIR__ . '/../Resources/views/' . $name . '.html')) {
-            throw new NotFoundHttpException();
-        }
-
-        return file_get_contents($file);
+        return file_get_contents($app['juno.template_locator']->locate($name . '.html'));
     }
 }
 
