@@ -5,7 +5,7 @@ code{white-space:normal;font-size:11px;}
 abbr{font-family:monospace}
 h1,h2,h3,h4,h5,h6{font-family:'Alegreya',serif;font-weight:700}
 
-h3 .glyphicon{top:3px}
+h3 .glyphicon{top:3px;margin-right:7px;}
 
 a{color:#4d280b}
 a:hover{color:#545454;text-decoration:underline}
