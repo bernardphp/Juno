@@ -17,10 +17,9 @@ var Juno = null;
         return $resource('info.json', {}, {});
     }]);
 
-    Juno.controller('DefaultController', ['$scope', '$route', '$routeParams', function ($scope, $route, $routeParams) {
+    Juno.controller('DefaultController', ['$scope', '$route', function ($scope, $route) {
         $scope.isCollapsed = false;
         $scope.route = $route;
-        $scope.routeParams = $routeParams;
     }]);
 
     Juno.controller('OverviewController', angular.noop);
@@ -29,11 +28,11 @@ var Juno = null;
         $scope.info = Info.get();
     }]);
 
-    Juno.controller('QueuesController', ['$scope', 'Queue', function ($scope, Queue) {
+    Juno.controller('QueuesController', ['$scope', '$timeout', 'Queue', function ($scope, $timeout, Queue) {
         $scope.queues = Queue.query();
     }]);
 
-    Juno.controller('QueueController', ['$scope', '$routeParams', 'Queue', function ($scope, $routeParams, Queue) {
+    Juno.controller('QueueController', ['$scope', '$routeParams', '$timeout', 'Queue', function ($scope, $routeParams, $timeout, Queue) {
         $scope.page  = parseInt($routeParams.page) || 1;
         $scope.pages = 1;
         $scope.queue = Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (data) {

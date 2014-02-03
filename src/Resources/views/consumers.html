@@ -19,7 +19,7 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="consumer in consumers">
+                <tr ng-repeat="consumer in consumers | orderBy:'+name'">
                     <td>{{ consumer.name }}</td>
                     <td ng-if="consumer.running">{{ consumer.uptime * 1000 | timeAgo }}</td>
                     <td ng-if="consumer.running == false">~</td>
