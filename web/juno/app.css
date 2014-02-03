@@ -34,7 +34,7 @@ a:hover{color:#545454;text-decoration:underline}
 
 .col-md-6 .panel-default .panel-body + .table-responsive{border-top:0}
 
-.pagination li.active a,.pagination li.active a:hover{background:#00AA7F;border-color:#00AA7F;font-weight:bold;}
+.pagination li.active a,.pagination li.active a:hover{background:#ffd700;border-color:#ffd700;font-weight:bold;}
 
 .table-pretty-headers th{text-transform:capitalize}
 

@@ -29,7 +29,21 @@ var Juno = null;
     }]);
 
     Juno.controller('QueuesController', ['$scope', '$timeout', 'Queue', function ($scope, $timeout, Queue) {
-        $scope.queues = Queue.query();
+        $scope.queues = [];
+
+        var timeout;
+
+        (function refresh() {
+            Queue.query({}, function (queues) {
+                $scope.queues = queues;
+
+                timeout = $timeout(refresh, 2000);
+            });
+        })();
+
+        $scope.$on('$destroy', function () {
+            $timeout.cancel(timeout);
+        });
     }]);
 
     Juno.controller('QueueController', ['$scope', '$routeParams', '$timeout', 'Queue', function ($scope, $routeParams, $timeout, Queue) {
