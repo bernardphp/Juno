@@ -1,8 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya:400,700);
+
 body{background:#f9f6f1}
 code{white-space:normal;font-size:11px;}
 abbr{font-family:monospace}
+h1,h2,h3,h4,h5,h6{font-family:'Alegreya',serif;font-weight:700}
 
-a{color:#19bc9c}
+h3 .glyphicon{top:3px}
+
+a{color:#4d280b}
 a:hover{color:#545454;text-decoration:underline}
 
 .navbar-default .navbar-toggle{border:0}
@@ -10,7 +15,7 @@ a:hover{color:#545454;text-decoration:underline}
 .navbar-default .navbar-toggle:focus{background:#00AA7F}
 .navbar-default .navbar-toggle .icon-bar{background:#fff;}
 
-.navbar-default{margin-bottom:0;background:#00ba8b}
+.navbar-default{margin-bottom:0;background:#ffd700}
 .navbar-default .navbar-brand{color:#fff;font-weight:bold;font-size:22px}
 .navbar-default .navbar-brand:hover{color:#fff;}
 
