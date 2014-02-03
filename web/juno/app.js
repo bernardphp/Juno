@@ -5,6 +5,7 @@ var Juno = null;
 
     Juno = angular.module('Juno', ['ngRoute', 'ngResource']);
 
+
     Juno.factory('Queue', ['$resource', function ($resource) {
         return $resource('queue/:queue.json', {}, {});
     }]);
@@ -28,25 +29,11 @@ var Juno = null;
         $scope.info = Info.get();
     }]);
 
-    Juno.controller('QueuesController', ['$scope', '$timeout', 'Queue', function ($scope, $timeout, Queue) {
-        $scope.queues = [];
-
-        var timeout;
-
-        (function refresh() {
-            Queue.query({}, function (queues) {
-                $scope.queues = queues;
-
-                timeout = $timeout(refresh, 2000);
-            });
-        })();
-
-        $scope.$on('$destroy', function () {
-            $timeout.cancel(timeout);
-        });
+    Juno.controller('QueuesController', ['$scope', 'Queue', function ($scope, Queue) {
+        $scope.queues = Queue.query();
     }]);
 
-    Juno.controller('QueueController', ['$scope', '$routeParams', '$timeout', 'Queue', function ($scope, $routeParams, $timeout, Queue) {
+    Juno.controller('QueueController', ['$scope', '$routeParams', 'Queue', function ($scope, $routeParams, Queue) {
         $scope.page  = parseInt($routeParams.page) || 1;
         $scope.pages = 1;
         $scope.queue = Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (data) {
