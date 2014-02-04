@@ -39,7 +39,7 @@ var Juno = null;
         };
 
         Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (queue) {
-            $scope.pages = Math.ceil(data.count / 10);
+            $scope.pages = Math.ceil(queue.count / 10);
             $scope.queue = queue;
         });
 
