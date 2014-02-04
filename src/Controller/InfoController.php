@@ -8,7 +8,7 @@ class InfoController
 {
     public function indexAction(Application $app)
     {
-        return json_encode(array(
+        return $app->json(array(
             'driver' => $app['bernard.driver']->info(),
             'config' => $app['bernard.config'],
         ));

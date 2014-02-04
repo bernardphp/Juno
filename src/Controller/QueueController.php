@@ -17,7 +17,7 @@ class QueueController
             $queues[] = array('name' => $queue, 'count' => $driver->countMessages($queue));
         }
 
-        return json_encode($queues);
+        return $app->json($queues);
     }
 
     public function showAction(Application $app, Request $request, $queue)
@@ -28,7 +28,7 @@ class QueueController
         $queue = $app['bernard.queue_factory']->create($queue);
         $envelopes = new EnvelopeIterator($queue->peek($offset, $limit));
 
-        return json_encode(array(
+        return $app->json(array(
             'name' => (string) $queue,
             'count' => $queue->count(),
             'messages' => iterator_to_array($envelopes),
