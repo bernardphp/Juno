@@ -14,7 +14,7 @@ As all other appliations in the PHP world Juno is installed through Composer. Co
 and package dependency resolvement.
 
 ``` bash
-composer require bernard/juno:~2.0@dev
+composer require bernard/juno:~1.0
 ```
 
 To run Juno on its own just install it with Composer and create a front controller. Juno provides a function that
