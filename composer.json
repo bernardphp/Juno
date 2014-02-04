@@ -8,10 +8,11 @@
     },
 
     "require" : {
-        "php" : ">=5.3.3",
-        "silex/silex" : "~1.0",
+        "php"             : ">=5.3.3",
+        "silex/silex"     : "~1.0",
+        "twig/twig"       : "~1.10",
         "bernard/bernard" : "~0.12",
-        "bernard/silex" : "dev-master"
+        "bernard/silex"   : "dev-master"
     },
 
     "require-dev" : {

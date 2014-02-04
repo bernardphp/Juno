@@ -1,0 +1,84 @@
+{# This file contains blocks that are used to comprise the layout
+file. This makes it easier to override specific parts of the layout. #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/juno/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/juno/app.css" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-resource.js"></script>
+
+    {% if debug %}
+        <script src="/juno/app.js"></script>
+        <script src="/juno/utils.js"></script>
+    {% else %}
+        <script src="/juno/juno.min.js"></script>
+    {% endif %}
+{% endblock %}
+
+{% block layout %}
+    <!DOCTYPE html>
+    <html ng-app="Juno">
+        <head>
+            <title>Overview - Juno</title>
+            <base href="{{ mount_prefix }}" />
+
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+            {{ block('stylesheets') }}
+        </head>
+
+        <body ng-controller="DefaultController">
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+
+                        <a class="navbar-brand" ng-href="./">Juno</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar navbar-juno navbar-static-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-collapse" ng-class="{'collapse' : !isCollapsed }">
+                        <ul class="nav navbar-nav">
+                            <li ng-class="{ 'active' : route.current.controller == 'OverviewController' }">
+                                <a ng-href="./"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
+                            </li>
+
+                            <li ng-class="{ 'active' : ['QueueController', 'QueuesController'].indexOf(route.current.controller) != -1 }">
+                                <a ng-href="./queue"><span class="glyphicon glyphicon-film"></span> Queues</a>
+                            </li>
+
+                            <li ng-class="{ 'active' : route.current.controller == 'FailedController' }">
+                                <a ng-href="./queue/failed"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
+                            </li>
+
+                            <li ng-class="{ 'active' : route.current.controller == 'ConsumersController' }">
+                                <a ng-href="./consumer"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
+                            </li>
+
+                            <li ng-class="{ 'active' : route.current.controller == 'InfoController' }">
+                                <a ng-href="./info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" ng-view></div>
+
+            {{ block('javascripts') }}
+        </body>
+    </html>
+{% endblock %}

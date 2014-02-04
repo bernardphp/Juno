@@ -18,18 +18,20 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="queue in queues | orderBy:'+name'">
-                    <td><a ng-href="./queue/{{ queue.name }}">{{ queue.name }}</a></td>
-                    <td class="text-center">
-                        <span ng-if="queue.count < 50" class="label label-success">OK</span>
-                        <span ng-if="queue.count >= 50" class="label label-warning">WARNING</span>
-                    </td>
-                    <td class="text-right">{{ queue.count }}</td>
-                </tr>
+                {% verbatim %}
+                    <tr ng-repeat="queue in queues | orderBy:'+name'">
+                        <td><a ng-href="./queue/{{ queue.name }}">{{ queue.name }}</a></td>
+                        <td class="text-center">
+                            <span ng-if="queue.count < 50" class="label label-success">OK</span>
+                            <span ng-if="queue.count >= 50" class="label label-warning">WARNING</span>
+                        </td>
+                        <td class="text-right">{{ queue.count }}</td>
+                    </tr>
 
-                <tr ng-if="queues | empty">
-                    <td colspan="3">No queues yet...</td>
-                </tr>
+                    <tr ng-if="queues | empty">
+                        <td colspan="3">No queues yet...</td>
+                    </tr>
+                {% endverbatim %}
             </tbody>
         </table>
     </div>

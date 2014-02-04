@@ -14,9 +14,11 @@ class JunoServiceProvider implements ServiceProviderInterface, ControllerProvide
     {
         $app['juno.mount_prefix'] = '/';
 
-        $app['juno.template_locator'] = $app->share(function () {
-            return new TemplateLocator(array(__DIR__ . '/../Resources/views'));
-        });
+        $app['twig.loader.filesystem'] = $app->share($app->extend('twig.loader.filesystem', function ($loader) {
+            $loader->addPath(__DIR__ . '/../Resources/views', 'Juno');
+
+            return $loader;
+        }));
     }
 
     public function boot(Application $app)
