@@ -61,37 +61,37 @@ var Juno = null;
 
         $routeProvider.when('/', {
             templateUrl : 'template/overview',
-            name: "overview"
+            name        : 'overview'
         });
 
         $routeProvider.when('/info', {
             templateUrl : 'template/info',
-            controller : 'InfoController',
-            name: "info"
+            controller  : 'InfoController',
+            name        : 'info'
         });
 
         $routeProvider.when('/queue', {
             templateUrl : 'template/queues',
-            controller : 'QueuesController',
-            name: "queue"
+            controller  : 'QueuesController',
+            name        : 'queue'
         });
 
         $routeProvider.when('/queue/failed', {
             templateUrl : 'template/queue',
-            controller : 'FailedController',
-            name: "failed"
+            controller  : 'FailedController',
+            name        : 'failed'
         });
 
         $routeProvider.when('/queue/:queue', {
             templateUrl : 'template/queue',
-            controller : 'QueueController',
-            name: "queues"
+            controller  : 'QueueController',
+            name        : 'queues'
         });
 
         $routeProvider.when('/consumer', {
             templateUrl : 'template/consumers',
-            controller : 'ConsumersController',
-            name: "consumers"
+            controller  : 'ConsumersController',
+            name        : 'consumers'
         });
 
         $routeProvider.otherwise({redirectTo: '/'});
