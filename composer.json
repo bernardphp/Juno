@@ -13,10 +13,5 @@
         "twig/twig"       : "~1.10",
         "bernard/bernard" : "~0.12",
         "bernard/silex"   : "dev-master"
-    },
-
-    "require-dev" : {
-        "symfony/browser-kit" : "~2.4",
-        "doctrine/dbal" : "~2.0"
     }
 }

@@ -43,13 +43,13 @@ a:hover{color:#545454;text-decoration:underline}
 
 .text-center .label {width:100%;display:inline-block;padding: .3em .6em;}
 
-.logo{width:111px;height:70px;display:inline-block;text-indent:-99999px;background:url('logo_small.png');}
+.logo{width:111px;height:70px;display:inline-block;text-indent:-99999px;background:url('img/logo_small.png');}
 .ribbon{position: absolute;top:0;right:0;border:0;z-index:2000;}
-.ribbon a{background:url('fork-me.png');width:140px;height:140px;display:block;text-indent:-99999px;}
+.ribbon a{background:url('img/fork-me.png');width:140px;height:140px;display:block;text-indent:-99999px;}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .logo{background:url('logo_small@2x.png');background-size:111px 70px;}
-    .ribbon a{background:url('fork-me@2x.png');background-size:140px 140px}
+    .logo{background:url('img/logo_small@2x.png');background-size:111px 70px;}
+    .ribbon a{background:url('img/fork-me@2x.png');background-size:140px 140px}
 }
 
 @media (max-width: 768px) {

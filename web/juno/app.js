@@ -33,8 +33,14 @@ var Juno = null;
     Juno.controller('QueueController', ['$scope', '$routeParams', 'Queue', function ($scope, $routeParams, Queue) {
         $scope.page  = parseInt($routeParams.page) || 1;
         $scope.pages = 1;
-        $scope.queue = Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (data) {
+        $scope.queue = {
+            name     : $routeParams.queue,
+            messages : []
+        };
+
+        Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (queue) {
             $scope.pages = Math.ceil(data.count / 10);
+            $scope.queue = queue;
         });
 
         $scope.delete = function () {
