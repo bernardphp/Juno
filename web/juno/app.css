@@ -21,6 +21,9 @@ a:hover{color:#545454;text-decoration:underline}
 
 .navbar-static-top{border-bottom-width:0px}
 
+.panel-heading{position:relative}
+.panel-heading .btn-group{position:absolute;right:15px;top:9px;}
+
 .navbar-juno{background:#fff;border-bottom:1px solid #d6d6d6}
 .navbar-juno .nav li{border-left:1px solid #d6d6d6;height:60px;min-width:90px;}
 .navbar-juno .nav li:last-child{border-right:1px solid #d6d6d6}

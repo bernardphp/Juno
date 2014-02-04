@@ -34,4 +34,11 @@ class QueueController
             'messages' => iterator_to_array($envelopes),
         ));
     }
+
+    public function deleteAction(Application $app, $queue)
+    {
+        $app['bernard.driver']->removeQueue($queue);
+
+        return $app->json(array(), 204);
+    }
 }

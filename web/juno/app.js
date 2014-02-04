@@ -5,7 +5,6 @@ var Juno = null;
 
     Juno = angular.module('Juno', ['ngRoute', 'ngResource']);
 
-
     Juno.factory('Queue', ['$resource', function ($resource) {
         return $resource('queue/:queue.json', {}, {});
     }]);
@@ -39,7 +38,12 @@ var Juno = null;
         $scope.queue = Queue.get({ queue : $routeParams.queue, offset : ($scope.page - 1) * 10 }, function (data) {
             $scope.pages = Math.ceil(data.count / 10);
         });
-    }]);
+
+        $scope.delete = function () {
+            Queue.delete({ queue : $routeParams.queue });
+        };
+
+    }])
 
     Juno.controller('ConsumersController', ['$scope', 'Consumer', function ($scope, Consumer) {
         $scope.consumers = Consumer.query();

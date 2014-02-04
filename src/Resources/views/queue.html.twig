@@ -1,7 +1,13 @@
 {% verbatim %}
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-film"></span> Queue "{{ queue.name }}"</h3>
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-film"></span> Queue "{{ queue.name }}"
+            </h3>
+
+            <div class="btn-group pull-right">
+                <a href="#" class="btn btn-xs btn-danger" ng-click="delete()">Delete</a>
+            </div>
         </div>
 
         <div class="panel-body">

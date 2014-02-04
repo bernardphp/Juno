@@ -39,6 +39,9 @@ class JunoServiceProvider implements ServiceProviderInterface, ControllerProvide
         $controllers->get('/queue/{queue}.json', 'Juno\Controller\QueueController::showAction')
             ->bind('juno_queue_show');
 
+        $controllers->delete('/queue/{queue}.json', 'Juno\Controller\QueueController::deleteAction')
+            ->bind('juno_queue_delete');
+
         $controllers->get('/template/{name}', 'Juno\Controller\DefaultController::templateAction')
             ->bind('juno_default_template');
 
