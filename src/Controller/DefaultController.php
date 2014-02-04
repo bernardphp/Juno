@@ -11,6 +11,7 @@ class DefaultController
     {
         return $app['twig']->render('@Juno/layout.html.twig', array(
             'mount_prefix' => $app['juno.mount_prefix'],
+            'base_url'     => $app['juno.base_url'],
             'debug'        => $app['debug'],
         ));
     }
