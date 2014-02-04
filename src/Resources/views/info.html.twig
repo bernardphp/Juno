@@ -15,15 +15,15 @@
                         <tbody>
                             <tr>
                                 <th width="50%">Queues</th>
-                                <td>{{ info.queues }}</td>
+                                <td>{{ info.queues || 0 }}</td>
                             </tr>
                             <tr>
                                 <th width="50%">Messages</th>
-                                <td>{{ info.messages }}</td>
+                                <td>{{ info.messages || 0 }}</td>
                             </tr>
                             <tr>
                                 <th width="50%">Failed</th>
-                                <td>{{ info.failed }}</td>
+                                <td>{{ info.failed || 0 }}</td>
                             </tr>
 
                             <tr ng-repeat="(key, value) in info.config">
