@@ -60,25 +60,27 @@ file. This makes it easier to override specific parts of the layout. #}
                 <div class="container">
                     <div class="navbar-collapse" ng-class="{'collapse' : !isCollapsed }">
                         <ul class="nav navbar-nav">
-                            <li ng-class="{ 'active' : route.current.controller == 'OverviewController' }">
+
+                            <li ng-class="{ 'active' : route.current.name == 'overview' }">
                                 <a ng-href="./"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
                             </li>
 
-                            <li ng-class="{ 'active' : ['QueueController', 'QueuesController'].indexOf(route.current.controller) != -1 }">
+                            <li ng-class="{ 'active' : ['queues', 'queue'].indexOf(route.current.name) != -1 }">
                                 <a ng-href="./queue"><span class="glyphicon glyphicon-film"></span> Queues</a>
                             </li>
 
-                            <li ng-class="{ 'active' : route.current.controller == 'FailedController' }">
+                            <li ng-class="{ 'active' : route.current.name == 'failed' }">
                                 <a ng-href="./queue/failed"><span class="glyphicon glyphicon-warning-sign"></span> Failed</a>
                             </li>
 
-                            <li ng-class="{ 'active' : route.current.controller == 'ConsumersController' }">
+                            <li ng-class="{ 'active' : route.current.name == 'consumers' }">
                                 <a ng-href="./consumer"><span class="glyphicon glyphicon-cog"></span> Consumers</a>
                             </li>
 
-                            <li ng-class="{ 'active' : route.current.controller == 'InfoController' }">
+                            <li ng-class="{ 'active' : route.current.name == 'info' }">
                                 <a ng-href="./info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
