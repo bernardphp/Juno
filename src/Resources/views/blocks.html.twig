@@ -19,6 +19,12 @@ file. This makes it easier to override specific parts of the layout. #}
     {% endif %}
 {% endblock %}
 
+{% block ribbon %}
+    <div class="ribbon">
+        <a href="https://github.com/bernardphp/Juno">Fork me on GitHub!</a>
+    </div>
+{% endblock %}
+
 {% block layout %}
     <!DOCTYPE html>
     <html ng-app="Juno">
@@ -33,6 +39,8 @@ file. This makes it easier to override specific parts of the layout. #}
         </head>
 
         <body ng-controller="DefaultController">
+            {{ block('ribbon') }}
+
             <div class="navbar navbar-default navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -77,6 +85,10 @@ file. This makes it easier to override specific parts of the layout. #}
             </div>
 
             <div class="container" ng-view></div>
+
+            <div class="container text-center">
+                <a class="logo" href="http://bernardphp.com">Bernard</a>
+            </div>
 
             {{ block('javascripts') }}
         </body>
