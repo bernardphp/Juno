@@ -1,5 +1,6 @@
 {
     "name" : "bernard/juno",
+    "description" : "Web application for Bernard. Offers introspection, api and monitoring.",
     "license" : "MIT",
 
     "autoload" : {
@@ -12,6 +13,12 @@
         "silex/silex"     : "~1.0",
         "twig/twig"       : "~1.10",
         "bernard/bernard" : "~0.12",
-        "bernard/silex"   : "dev-master"
+        "bernard/silex"   : ">=0.5.0,<0.6.0"
+    },
+
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "1.0.x-dev"
+        }
     }
 }
