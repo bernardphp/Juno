@@ -22,8 +22,6 @@ var Juno = null;
         $scope.route = $route;
     }]);
 
-    Juno.controller('OverviewController', angular.noop);
-
     Juno.controller('InfoController', ['$scope', 'Info', function ($scope, Info) {
         $scope.info = Info.get();
     }]);
@@ -45,6 +43,15 @@ var Juno = null;
 
     }])
 
+    Juno.controller('FailedController', ['$controller', '$scope', '$routeParams', 'Queue', function ($controller, $scope, $routeParams, Queue) {
+        $routeParams.queue = 'failed';
+        $controller('QueueController', {
+            $scope: $scope, 
+            $routeParams: $routeParams, 
+            Queue: Queue
+        });
+    }]);
+
     Juno.controller('ConsumersController', ['$scope', 'Consumer', function ($scope, Consumer) {
         $scope.consumers = Consumer.query();
     }]);
@@ -54,27 +61,37 @@ var Juno = null;
 
         $routeProvider.when('/', {
             templateUrl : 'template/overview',
-            controller : 'OverviewController'
+            name: "overview"
         });
 
         $routeProvider.when('/info', {
             templateUrl : 'template/info',
-            controller : 'InfoController'
+            controller : 'InfoController',
+            name: "info"
         });
 
         $routeProvider.when('/queue', {
             templateUrl : 'template/queues',
-            controller : 'QueuesController'
+            controller : 'QueuesController',
+            name: "queue"
+        });
+
+        $routeProvider.when('/queue/failed', {
+            templateUrl : 'template/queue',
+            controller : 'FailedController',
+            name: "failed"
         });
 
         $routeProvider.when('/queue/:queue', {
             templateUrl : 'template/queue',
-            controller : 'QueueController'
+            controller : 'QueueController',
+            name: "queues"
         });
 
         $routeProvider.when('/consumer', {
             templateUrl : 'template/consumers',
-            controller : 'ConsumersController'
+            controller : 'ConsumersController',
+            name: "consumers"
         });
 
         $routeProvider.otherwise({redirectTo: '/'});
