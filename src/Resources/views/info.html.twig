@@ -13,6 +13,19 @@
                 <div class="table-responsive table-pretty-headers">
                     <table class="table table-striped table-bordered table-hover">
                         <tbody>
+                            <tr>
+                                <th width="50%">Queues</th>
+                                <td>{{ info.queues }}</td>
+                            </tr>
+                            <tr>
+                                <th width="50%">Messages</th>
+                                <td>{{ info.messages }}</td>
+                            </tr>
+                            <tr>
+                                <th width="50%">Failed</th>
+                                <td>{{ info.failed }}</td>
+                            </tr>
+
                             <tr ng-repeat="(key, value) in info.config">
                                 <th>{{ key }}</th>
                                 <td>{{ value || '~' }}</td>
@@ -42,7 +55,7 @@
                             </tr>
 
                             <tr ng-if="info.driver | empty">
-                                <td colspan="2">No additional information found...</td>
+                                <td colspan="2">No addtional information found..</td>
                             </tr>
                         </tbody>
                     </table>
