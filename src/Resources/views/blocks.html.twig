@@ -25,15 +25,13 @@ file. This makes it easier to override specific parts of the layout. #}
     </div>
 {% endblock %}
 
-{% block title %}
-    Juno
-{% endblock %}
+{% block title 'Juno' %}
 
 {% block layout %}
     <!DOCTYPE html>
     <html ng-app="Juno">
         <head>
-            <title>{{ block('title') }}</title>
+            <title>{{- block('title') -}}</title>
             <base href="{{ base_url }}" />
 
             <meta charset="utf-8" />
