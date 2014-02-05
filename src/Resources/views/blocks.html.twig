@@ -25,14 +25,16 @@ file. This makes it easier to override specific parts of the layout. #}
     </div>
 {% endblock %}
 
-{% block title 'Juno' %}
+{% block title %}
+    Juno
+{% endblock %}
 
 {% block layout %}
-    {% set title = block('title') %}
+    {% set title = block('title')|trim %}
     <!DOCTYPE html>
     <html ng-app="Juno">
         <head>
-        <title ng-bind-template="{% verbatim %}{{ route.current.name || '' | ucfirst }}{% endverbatim %} - {{ title }}">{{- title -}}</title>
+            <title ng-bind-template="{{ '{{ route.current.name || \'\' | ucfirst }}' }} - {{ title }}">{{ title }}</title>
             <base href="{{ base_url }}" />
 
             <meta charset="utf-8" />
@@ -63,7 +65,6 @@ file. This makes it easier to override specific parts of the layout. #}
                 <div class="container">
                     <div class="navbar-collapse" ng-class="{'collapse' : !isCollapsed }">
                         <ul class="nav navbar-nav">
-
                             <li ng-class="{ 'active' : route.current.name == 'overview' }">
                                 <a ng-href="./"><span class="glyphicon glyphicon-dashboard"></span> Overview</a>
                             </li>
@@ -83,7 +84,6 @@ file. This makes it easier to override specific parts of the layout. #}
                             <li ng-class="{ 'active' : route.current.name == 'info' }">
                                 <a ng-href="./info"><span class="glyphicon glyphicon-info-sign"></span> Info</a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
