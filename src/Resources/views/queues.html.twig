@@ -25,7 +25,7 @@
                             <span ng-if="queue.count < 50" class="label label-success">OK</span>
                             <span ng-if="queue.count >= 50" class="label label-warning">WARNING</span>
                         </td>
-                        <td class="text-right">{{ queue.count }}</td>
+                        <td class="text-right">{{ queue.count | number }}</td>
                     </tr>
 
                     <tr ng-if="queues | empty">

@@ -11,7 +11,7 @@
         </div>
 
         <div class="panel-body">
-            Showing page {{ page }} of {{ pages }}.
+            Showing page {{ page | number }} of {{ pages | number }}.
         </div>
 
         <div class="table-responsive">
@@ -45,7 +45,7 @@
                 <li ng-if="page > 1"><a href="./queue/{{ queue.name }}?page={{ page - 1 }}">&laquo; less</a></li>
 
                 <li ng-class="{'active' : index + 1 == page}" ng-repeat="index in [] | pagination:page:pages">
-                    <a href="./queue/{{ queue.name }}?page={{ index + 1 }}">{{ index + 1 }}</a>
+                    <a href="./queue/{{ queue.name }}?page={{ index + 1 }}">{{ index + 1 | number }}</a>
                 </li>
 
                 <li ng-if="page < pages"><a href="./queue/{{ queue.name }}?page={{ page + 1 }}">more &raquo;</a></li>

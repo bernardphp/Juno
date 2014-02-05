@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0.x
+-----
+
+ * Use `number` filter when showing message count, pages and page number.
+
 1.0.1 - 2013-02-05
 ------------------
 
