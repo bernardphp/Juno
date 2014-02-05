@@ -32,7 +32,7 @@ file. This makes it easier to override specific parts of the layout. #}
     <!DOCTYPE html>
     <html ng-app="Juno">
         <head>
-        <title ng-bind-template="{% verbatim %}{{ route.current.name | ucfirst }}{% endverbatim %} - {{ title }}">{{- title -}}</title>
+        <title ng-bind-template="{% verbatim %}{{ route.current.name || '' | ucfirst }}{% endverbatim %} - {{ title }}">{{- title -}}</title>
             <base href="{{ base_url }}" />
 
             <meta charset="utf-8" />
