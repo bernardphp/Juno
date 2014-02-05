@@ -17,9 +17,9 @@ var Juno = null;
         return $resource('info.json', {}, {});
     }]);
 
-    Juno.controller('DefaultController', ['$scope', '$route', function ($scope, $route) {
-        $scope.isCollapsed = false;
-        $scope.route = $route;
+    Juno.controller('DefaultController', ['$rootScope', '$route', function ($rootScope, $route) {
+        $rootScope.isCollapsed = false;
+        $rootScope.route = $route;
     }]);
 
     Juno.controller('InfoController', ['$scope', 'Info', function ($scope, Info) {

@@ -28,10 +28,11 @@ file. This makes it easier to override specific parts of the layout. #}
 {% block title 'Juno' %}
 
 {% block layout %}
+    {% set title = block('title') %}
     <!DOCTYPE html>
     <html ng-app="Juno">
         <head>
-            <title>{{- block('title') -}}</title>
+        <title ng-bind-template="{% verbatim %}{{ route.current.name | ucfirst }}{% endverbatim %} - {{ title }}">{{- title -}}</title>
             <base href="{{ base_url }}" />
 
             <meta charset="utf-8" />

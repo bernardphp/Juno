@@ -1,6 +1,12 @@
 (function () {
     "use strict";
 
+    Juno.filter('ucfirst', function () {
+        return function (input) {
+            return input.charAt(0).toUpperCase() + input.slice(1);
+        };
+    });
+
     Juno.filter('empty', function () {
         return function (input) {
             return angular.equals({}, input) || angular.equals([], input);
