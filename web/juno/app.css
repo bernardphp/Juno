@@ -11,8 +11,8 @@ a{color:#4d280b}
 a:hover{color:#545454;text-decoration:underline}
 
 .navbar-default .navbar-toggle{border:0}
-.navbar-default .navbar-toggle:hover{background:#00AA7F}
-.navbar-default .navbar-toggle:focus{background:#00AA7F}
+.navbar-default .navbar-toggle:hover{background:#ffd700}
+.navbar-default .navbar-toggle:focus{background:#ffd700}
 .navbar-default .navbar-toggle .icon-bar{background:#fff;}
 
 .navbar-default{margin-bottom:0;background:#ffaa00}

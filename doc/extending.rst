@@ -10,8 +10,8 @@ Templates
 Juno uses twig for templating this makes it easy to override. All templates used by Juno are under the ``Juno`` namespace.
 This means accessing a template would be ``@Juno/queue.html.twig``.
 
-``src/Resources/views/blocks.html.twig`` contains the blocks used by Juno. This includes the layout and different blocks.
-To override using this create a new ``layout.html.twig`` file and extend ``@Juno/base.html.twig``.
+``src/Resources/views/base.html.twig`` contains the layout with its blocks used by Juno. This includes the layout and
+different blocks. To override using this create a new ``layout.html.twig`` file and extend ``@Juno/base.html.twig``.
 
 .. code-block:: jinja
 
