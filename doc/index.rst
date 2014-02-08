@@ -7,8 +7,8 @@ and monitoring of Bernard.
 It can be run as a single application or it can be embedded Silex through a Service Provider. Also i can be wrapped
 with StackPHP and be pseudu embedded. You can read more about `StackPHP here <http://stackphp.com>`_.
 
-Getting Started
----------------
+Installing
+----------
 
 As all other appliations in the PHP world Juno is installed through Composer. Composer will handle autoloading
 and package dependency resolvement.
@@ -32,12 +32,3 @@ root this will look like this. Also you can do a symlink.
 .. code-block:: bash
 
     $ cp -R vendor/bernard/juno/web/juno web/juno
-
-Documentation
--------------
-
-.. toctree::
-    :maxdepth: 2
-
-    embedding
-    extending
