@@ -2,7 +2,7 @@
 
 set -e
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../web/juno"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/../src/Resources/public"
 OUT=$DIR/app.min.js
 
 JS="$(cat $DIR/app.js)$(cat $DIR/utils.js)"

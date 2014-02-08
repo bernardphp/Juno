@@ -31,4 +31,4 @@ root this will look like this. Also you can do a symlink.
 
 .. code-block:: bash
 
-    $ cp -R vendor/bernard/juno/web/juno web/juno
+    $ cp -R vendor/bernard/juno/src/Resources/public web/juno

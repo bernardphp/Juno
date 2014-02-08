@@ -19,6 +19,10 @@
     "extra" : {
         "branch-alias" : {
             "dev-master" : "1.0.x-dev"
+        },
+
+        "resoures" : {
+            "export" : { "juno" : "src/Resources/views" }
         }
     }
 }
