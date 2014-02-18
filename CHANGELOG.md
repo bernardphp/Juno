@@ -8,6 +8,8 @@ Changelog
  * Remove `blocks.html.twig` and inline the blocks in `base.html.twig`.
  * Use `ng-href=""` on menu icon to make sure it does not reload page.
  * Fix hover color on `.navbar-toggle`.
+ * All templates have been inlined. This reduces XMLHttpRequests and makes the site faster.
+ Also it can be cached as a single template by twig.
 
 1.0.1 - 2013-02-05
 ------------------
