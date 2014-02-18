@@ -66,36 +66,36 @@ var Juno = null;
         $locationProvider.html5Mode(true);
 
         $routeProvider.when('/', {
-            templateUrl : 'template/overview',
+            templateUrl : 'overview',
             name        : 'overview'
         });
 
         $routeProvider.when('/info', {
-            templateUrl : 'template/info',
+            templateUrl : 'info',
             controller  : 'InfoController',
             name        : 'info'
         });
 
         $routeProvider.when('/queue', {
-            templateUrl : 'template/queues',
+            templateUrl : 'queues',
             controller  : 'QueuesController',
             name        : 'queue'
         });
 
         $routeProvider.when('/queue/failed', {
-            templateUrl : 'template/queue',
+            templateUrl : 'queue',
             controller  : 'FailedController',
             name        : 'failed'
         });
 
         $routeProvider.when('/queue/:queue', {
-            templateUrl : 'template/queue',
+            templateUrl : 'queue',
             controller  : 'QueueController',
             name        : 'queues'
         });
 
         $routeProvider.when('/consumer', {
-            templateUrl : 'template/consumers',
+            templateUrl : 'consumers',
             controller  : 'ConsumersController',
             name        : 'consumers'
         });

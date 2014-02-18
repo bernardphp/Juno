@@ -70,6 +70,14 @@
             <a class="logo" href="http://bernardphp.com">Bernard</a>
         </div>
 
+        {% block templates %}
+            <script type="text/ng-template" id="overview">{{ include('@Juno/overview.html.twig')|raw }}</script>
+            <script type="text/ng-template" id="queues">{{ include('@Juno/queues.html.twig')|raw }}</script>
+            <script type="text/ng-template" id="queue">{{ include('@Juno/queue.html.twig')|raw }}</script>
+            <script type="text/ng-template" id="consumers">{{ include('@Juno/consumers.html.twig')|raw }}</script>
+            <script type="text/ng-template" id="info">{{ include('@Juno/info.html.twig')|raw }}</script>
+        {% endblock %}
+
         {% block javascripts %}
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
             <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.js"></script>

@@ -5,8 +5,6 @@ namespace Juno\Provider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Silex\ControllerProviderInterface;
-use Juno\EventListener\AcceptListener;
-use Juno\TemplateLocator;
 
 class JunoServiceProvider implements ServiceProviderInterface, ControllerProviderInterface
 {
