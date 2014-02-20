@@ -11,6 +11,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="/juno/bootstrap/css/bootstrap.css" />
             <link rel="stylesheet" href="/juno/app.css" />
+            <link rel="stylesheet" href="/juno/font/style.css" />
         {% endblock %}
     </head>
 
@@ -67,7 +68,9 @@
         <div class="container" ng-view></div>
 
         <div class="container text-center">
-            <a class="logo" href="http://bernardphp.com">Bernard</a>
+            <a class="logo" href="http://bernardphp.com" target="_blank">
+                <span class="icon icon-barrel-bernard"></span>
+            </a>
         </div>
 
         {% block javascripts %}
