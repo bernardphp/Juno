@@ -4,6 +4,12 @@ Changelog
 1.0.x
 -----
 
+
+1.0.3 - 2014-02-21
+------------------
+
+ * Change icon to a less obstructive version using webfonts.
+
 1.0.2 - 2014-02-18
 ------------------
 
