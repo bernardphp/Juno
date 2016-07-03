@@ -51,7 +51,7 @@ it directly by using the service providers. The service provider uses the ``boot
     <?php
 
     use Silex\Application;
-    use Juno\Provider\JunoServiceProvider);
+    use Juno\Provider\JunoServiceProvider;
     use Bernard\Silex\BernardServiceProvider;
 
     $app = new Silex\Applcation(array('debug' => true));
